@@ -1,0 +1,12 @@
+:root {
+  font-family: 'Noto Sans Variable', sans-serif;
+}
+
+html:lang(zh-Hant), html:lang(zh-TW) {
+  font-family: 'Noto Sans TC Variable', 'Noto Sans Variable', sans-serif;
+}
+
+h1 {
+  font-weight: 800;
+  color: #333;
+}
