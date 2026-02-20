@@ -1155,10 +1155,10 @@ export const guidePagesCopy: Record<
     },
     tos: {
       metaTitle: "Terms of Service",
-      metaDescription: "Template Terms of Service page for Food Ninja.",
-      title: "Terms of Service (Template)",
+      metaDescription: "Terms of Service page for Food Ninja.",
+      title: "Terms of Service",
       intro:
-        "Replace this template with legal counsel-approved terms before production launch.",
+        "The newest official terms of service.",
       sectionsTitle: "Minimum sections you should include",
       sections: [
         {
@@ -1186,10 +1186,10 @@ export const guidePagesCopy: Record<
     },
     pp: {
       metaTitle: "Privacy Policy",
-      metaDescription: "Template Privacy Policy page for Food Ninja.",
-      title: "Privacy Policy (Template)",
+      metaDescription: "Privacy Policy page for Food Ninja.",
+      title: "Privacy Policy",
       intro:
-        "This is a drafting scaffold. Replace with final policy reflecting actual data handling in production.",
+        "The newest official privacy policy.",
       sectionsTitle: "Minimum sections you should include",
       sections: [
         {
@@ -1225,15 +1225,25 @@ export const guidePagesCopy: Record<
       sectionsTitle: "Contact Policy",
       sections: [
         {
-          title: "Single inbox for everything",
+          title: "Our support inbox",
           prompt:
-            "Use one address for support, business, privacy, and legal requests: support@food-ninja.com",
+            "For general customer support, please email us at: support@food-ninja.com",
         },
-        // {
-        //   title: "No dedicated business mailbox yet",
-        //   prompt:
-        //     "Until separate addresses are created, partnership and business messages should use the same support inbox.",
-        // },
+        {
+          title: "Privacy inquiries",
+          prompt:
+            "For privacy concerns, please email us at: privacy@food-ninja.com",
+        },
+        {
+          title: "Legal inquiries",
+          prompt:
+            "For legal requests, please email us at: legal@food-ninja.com",
+        },
+        {
+          title: "Contact our developer",
+          prompt:
+            "To contact our developer directly, please email: alberthuang@food-ninja.com",
+        },
         {
           title: "No social channels",
           prompt:
@@ -1271,9 +1281,9 @@ export const guidePagesCopy: Record<
     },
     tos: {
       metaTitle: "服務條款",
-      metaDescription: "Food Ninja 服務條款模板頁。",
-      title: "服務條款（模板）",
-      intro: "正式上線前，請以法務審核版本替換本模板。",
+      metaDescription: "Food Ninja 服務條款。",
+      title: "服務條款",
+      intro: "官方最新的服務條款。",
       sectionsTitle: "至少應包含的章節",
       sections: [
         {
@@ -1297,9 +1307,9 @@ export const guidePagesCopy: Record<
     },
     pp: {
       metaTitle: "隱私政策",
-      metaDescription: "Food Ninja 隱私政策模板頁。",
-      title: "隱私政策（模板）",
-      intro: "這是一份草稿骨架，請依正式上線資料流調整並更新。",
+      metaDescription: "Food Ninja 隱私政策。",
+      title: "隱私政策",
+      intro: "官方最新的隱私政策。",
       sectionsTitle: "至少應包含的章節",
       sections: [
         {
@@ -1329,15 +1339,25 @@ export const guidePagesCopy: Record<
       sectionsTitle: "聯絡政策",
       sections: [
         {
-          title: "單一聯絡信箱",
+          title: "客服信箱",
           prompt:
-            "客服、商務、隱私與法務相關需求，請統一寄到：support@food-ninja.com",
+            "一般客服問題，請寄到：support@food-ninja.com",
         },
-        // {
-        //   title: "尚未分拆商務信箱",
-        //   prompt:
-        //     "在建立獨立商務信箱前，合作與提案也請使用同一個 support 信箱。",
-        // },
+        {
+          title: "隱私相關聯絡",
+          prompt:
+            "有關隱私及個資問題，請寄到：privacy@food-ninja.com",
+        },
+        {
+          title: "法律相關聯絡",
+          prompt:
+            "有關法律相關問題，請寄到：legal@food-ninja.com",
+        },
+        {
+          title: "聯絡開發者",
+          prompt:
+            "若要直接聯絡開發者，請寄信到：alberthuang@food-ninja.com",
+        },
         {
           title: "沒有社群帳號",
           prompt:

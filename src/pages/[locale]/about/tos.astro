@@ -32,8 +32,13 @@ const setupSteps =
         "For PDF download, add `public/legal/tos-en.pdf` and `public/legal/tos-zh-TW.pdf`.",
         "If you want the full long-form text rendered on page, replace this template block with your final content.",
       ];
-const downloadLabel = locale === "zh-TW" ? "下載目前條款文字檔" : "Download current Terms text";
-const downloadHref = locale === "zh-TW" ? "/legal/tos-zh-TW.txt" : "/legal/tos-en.txt";
+const downloadLabel = locale === "zh-TW" ? "下載目前服務條款" : "Download current Terms of Service";
+const downloadHref = locale === "zh-TW" ? "/legal/FoodNinja_服務條款_ZH.pdf" : "/legal/FoodNinja_Terms_of_Service_EN.pdf";
+const viewerTitle = locale === "zh-TW" ? "服務條款 PDF 預覽" : "Terms of Service PDF Preview";
+const viewerFallbackLabel =
+  locale === "zh-TW"
+    ? "若無法顯示 PDF，請改以新分頁開啟條款檔案。"
+    : "If the PDF does not display, open the Terms document in a new tab.";
 ---
 
 <SiteLayout
@@ -85,6 +90,16 @@ const downloadHref = locale === "zh-TW" ? "/legal/tos-zh-TW.txt" : "/legal/tos-e
         ))
       }
     </ul> -->
+    <div class="legal-pdf-viewer">
+      <iframe
+        class="legal-pdf-viewer__frame"
+        src={`${downloadHref}#view=FitH`}
+        title={viewerTitle}
+        loading="lazy"
+      >
+        <a href={downloadHref} target="_blank" rel="noopener noreferrer">{viewerFallbackLabel}</a>
+      </iframe>
+    </div>
     <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
   </section>
 </SiteLayout>

@@ -33,8 +33,13 @@ const setupSteps =
         "If you want the full long-form text shown on page, replace this template block with your final policy.",
       ];
 const downloadLabel =
-  locale === "zh-TW" ? "下載目前隱私政策文字檔" : "Download current Privacy text";
-const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.txt";
+  locale === "zh-TW" ? "下載目前隱私政策" : "Download current Privacy Policy";
+const downloadHref = locale === "zh-TW" ? "/legal/FoodNinja_隱私政策_ZH.pdf" : "/legal/FoodNinja_Privacy_Policy_EN.pdf";
+const viewerTitle = locale === "zh-TW" ? "隱私政策 PDF 預覽" : "Privacy Policy PDF Preview";
+const viewerFallbackLabel =
+  locale === "zh-TW"
+    ? "若無法顯示 PDF，請改以新分頁開啟隱私政策檔案。"
+    : "If the PDF does not display, open the Privacy document in a new tab.";
 ---
 
 <SiteLayout
@@ -82,6 +87,16 @@ const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.
         ))
       }
     </ul> -->
+    <div class="legal-pdf-viewer">
+      <iframe
+        class="legal-pdf-viewer__frame"
+        src={`${downloadHref}#view=FitH`}
+        title={viewerTitle}
+        loading="lazy"
+      >
+        <a href={downloadHref} target="_blank" rel="noopener noreferrer">{viewerFallbackLabel}</a>
+      </iframe>
+    </div>
     <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
   </section>
 </SiteLayout>

@@ -19,6 +19,9 @@ const common = commonCopy[locale];
 const copy = guidePagesCopy[locale].contact;
 const aboutNav = common.aboutNav;
 const supportEmail = "support@food-ninja.com";
+const privacyEmail = "privacy@food-ninja.com";
+const legalEmail = "legal@food-ninja.com";
+const developerEmail = "alberthuang@food-ninja.com";
 ---
 
 <SiteLayout
@@ -56,7 +59,12 @@ const supportEmail = "support@food-ninja.com";
 
   <section class="section-panel">
     <p class="section-intro">{copy.note}</p>
+    <a class="btn btn--contact" href={`mailto:${supportEmail}`} target="_blank" style="margin-top: 15px;">{supportEmail}</a>
     <br>
-    <a class="btn btn--primary" href={`mailto:${supportEmail}`} target="_blank">{supportEmail}</a>
+    <a class="btn btn--contact" href={`mailto:${privacyEmail}`} target="_blank">{privacyEmail}</a>
+    <br>
+    <a class="btn btn--contact" href={`mailto:${legalEmail}`} target="_blank">{legalEmail}</a>
+    <br>
+    <a class="btn btn--contact" href={`mailto:${developerEmail}`} target="_blank">{developerEmail}</a>
   </section>
 </SiteLayout>
