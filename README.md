@@ -28,5 +28,7 @@ Supported locales: `en`, `zh-TW`.
 
 - `npm run dev`
 - `npm run build`
-- `npm run preview`
+- `npm run preview`  
+
+
 User is not intended to view repo.
