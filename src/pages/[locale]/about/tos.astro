@@ -1,4 +1,5 @@
 ---
+import LegalPdfViewer from "../../../components/LegalPdfViewer.astro";
 import SiteLayout from "../../../layouts/SiteLayout.astro";
 import {
   commonCopy,
@@ -39,6 +40,16 @@ const viewerFallbackLabel =
   locale === "zh-TW"
     ? "若無法顯示 PDF，請改以新分頁開啟條款檔案。"
     : "If the PDF does not display, open the Terms document in a new tab.";
+const viewerLoadingLabel = locale === "zh-TW" ? "正在載入 PDF..." : "Loading PDF...";
+const viewerErrorLabel =
+  locale === "zh-TW"
+    ? "無法顯示 PDF 預覽，請使用下方連結開啟檔案。"
+    : "Unable to render the PDF preview. Use the fallback link below.";
+const viewerPreviousLabel = locale === "zh-TW" ? "上一頁" : "Previous";
+const viewerNextLabel = locale === "zh-TW" ? "下一頁" : "Next";
+const viewerZoomOutLabel = locale === "zh-TW" ? "縮小" : "Zoom out";
+const viewerZoomInLabel = locale === "zh-TW" ? "放大" : "Zoom in";
+const viewerPageLabel = locale === "zh-TW" ? "頁數" : "Page";
 ---
 
 <SiteLayout
@@ -90,16 +101,18 @@ const viewerFallbackLabel =
         ))
       }
     </ul> -->
-    <div class="legal-pdf-viewer">
-      <iframe
-        class="legal-pdf-viewer__frame"
-        src={`${downloadHref}#view=FitH`}
-        title={viewerTitle}
-        loading="lazy"
-      >
-        <a href={downloadHref} target="_blank" rel="noopener noreferrer">{viewerFallbackLabel}</a>
-      </iframe>
-    </div>
+    <LegalPdfViewer
+      src={downloadHref}
+      title={viewerTitle}
+      fallbackLabel={viewerFallbackLabel}
+      loadingLabel={viewerLoadingLabel}
+      errorLabel={viewerErrorLabel}
+      previousLabel={viewerPreviousLabel}
+      nextLabel={viewerNextLabel}
+      zoomOutLabel={viewerZoomOutLabel}
+      zoomInLabel={viewerZoomInLabel}
+      pageLabel={viewerPageLabel}
+    />
     <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
   </section>
 </SiteLayout>

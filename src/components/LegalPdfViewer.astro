@@ -1,0 +1,249 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  fallbackLabel: string;
+  loadingLabel: string;
+  errorLabel: string;
+  previousLabel: string;
+  nextLabel: string;
+  zoomOutLabel: string;
+  zoomInLabel: string;
+  pageLabel: string;
+}
+
+const {
+  src,
+  title,
+  fallbackLabel,
+  loadingLabel,
+  errorLabel,
+  previousLabel,
+  nextLabel,
+  zoomOutLabel,
+  zoomInLabel,
+  pageLabel,
+} = Astro.props;
+---
+
+<div
+  class="legal-pdf-viewer"
+  data-pdf-viewer
+  data-pdf-src={src}
+  data-loading-label={loadingLabel}
+  data-error-label={errorLabel}
+  data-page-label={pageLabel}
+>
+  <div class="legal-pdf-viewer__toolbar" role="toolbar" aria-label={title}>
+    <button class="legal-pdf-viewer__control" type="button" data-action="prev">
+      {previousLabel}
+    </button>
+    <span class="legal-pdf-viewer__page-indicator" data-page-indicator>{pageLabel} 0 / 0</span>
+    <button class="legal-pdf-viewer__control" type="button" data-action="next">
+      {nextLabel}
+    </button>
+    <span class="legal-pdf-viewer__spacer" aria-hidden="true"></span>
+    <button class="legal-pdf-viewer__control" type="button" data-action="zoom-out">
+      {zoomOutLabel}
+    </button>
+    <button class="legal-pdf-viewer__control" type="button" data-action="zoom-in">
+      {zoomInLabel}
+    </button>
+  </div>
+
+  <p class="legal-pdf-viewer__status" data-status>{loadingLabel}</p>
+
+  <div class="legal-pdf-viewer__viewport">
+    <canvas class="legal-pdf-viewer__canvas" data-canvas aria-label={title}></canvas>
+  </div>
+
+  <p class="legal-pdf-viewer__fallback">
+    <a href={src} target="_blank" rel="noopener noreferrer">{fallbackLabel}</a>
+  </p>
+</div>
+
+<script is:inline type="module">
+  const PDF_JS_URL =
+    "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs";
+  const PDF_WORKER_URL =
+    "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs";
+
+  let pdfJsPromise;
+
+  const loadPdfJs = async () => {
+    if (!pdfJsPromise) {
+      pdfJsPromise = import(PDF_JS_URL).then((pdfjs) => {
+        pdfjs.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
+        return pdfjs;
+      });
+    }
+
+    return pdfJsPromise;
+  };
+
+  const setupViewer = async (root) => {
+    const src = root.dataset.pdfSrc;
+    if (!src) return;
+
+    const loadingLabel = root.dataset.loadingLabel || "Loading PDF...";
+    const errorLabel = root.dataset.errorLabel || "Unable to load PDF preview.";
+    const pageLabel = root.dataset.pageLabel || "Page";
+
+    const statusEl = root.querySelector("[data-status]");
+    const pageIndicatorEl = root.querySelector("[data-page-indicator]");
+    const canvasEl = root.querySelector("[data-canvas]");
+    const prevButton = root.querySelector("[data-action='prev']");
+    const nextButton = root.querySelector("[data-action='next']");
+    const zoomOutButton = root.querySelector("[data-action='zoom-out']");
+    const zoomInButton = root.querySelector("[data-action='zoom-in']");
+
+    if (!(canvasEl instanceof HTMLCanvasElement)) return;
+
+    let pdfDocument = null;
+    let pageNumber = 1;
+    let zoomLevel = 1;
+    let renderTask = null;
+    let renderToken = 0;
+    let resizeTimer = null;
+
+    const setStatus = (message, state = "info") => {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.dataset.state = state;
+      statusEl.hidden = false;
+    };
+
+    const clearStatus = () => {
+      if (!statusEl) return;
+      statusEl.hidden = true;
+      delete statusEl.dataset.state;
+    };
+
+    const updateIndicator = () => {
+      const totalPages = pdfDocument?.numPages || 0;
+      if (pageIndicatorEl) {
+        pageIndicatorEl.textContent = `${pageLabel} ${totalPages > 0 ? pageNumber : 0} / ${totalPages}`;
+      }
+    };
+
+    const updateControls = () => {
+      const totalPages = pdfDocument?.numPages || 0;
+      const hasDocument = totalPages > 0;
+
+      if (prevButton instanceof HTMLButtonElement) {
+        prevButton.disabled = !hasDocument || pageNumber <= 1;
+      }
+
+      if (nextButton instanceof HTMLButtonElement) {
+        nextButton.disabled = !hasDocument || pageNumber >= totalPages;
+      }
+
+      if (zoomOutButton instanceof HTMLButtonElement) {
+        zoomOutButton.disabled = !hasDocument || zoomLevel <= 0.75;
+      }
+
+      if (zoomInButton instanceof HTMLButtonElement) {
+        zoomInButton.disabled = !hasDocument || zoomLevel >= 2.5;
+      }
+    };
+
+    const renderPage = async () => {
+      if (!pdfDocument) return;
+      const taskToken = ++renderToken;
+
+      if (renderTask) {
+        renderTask.cancel();
+        renderTask = null;
+      }
+
+      try {
+        setStatus(loadingLabel);
+        const page = await pdfDocument.getPage(pageNumber);
+        if (taskToken !== renderToken) return;
+
+        const baseViewport = page.getViewport({ scale: 1 });
+        const viewerWidth = canvasEl.parentElement?.clientWidth || baseViewport.width;
+        const fitScale = Math.max(0.75, (viewerWidth - 18) / baseViewport.width);
+        const viewport = page.getViewport({ scale: fitScale * zoomLevel });
+        const pixelRatio = window.devicePixelRatio || 1;
+
+        canvasEl.width = Math.floor(viewport.width * pixelRatio);
+        canvasEl.height = Math.floor(viewport.height * pixelRatio);
+        canvasEl.style.width = `${Math.floor(viewport.width)}px`;
+        canvasEl.style.height = `${Math.floor(viewport.height)}px`;
+
+        const canvasContext = canvasEl.getContext("2d");
+        if (!canvasContext) {
+          setStatus(errorLabel, "error");
+          return;
+        }
+
+        canvasContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        canvasContext.clearRect(0, 0, canvasEl.width, canvasEl.height);
+
+        renderTask = page.render({
+          canvasContext,
+          viewport,
+        });
+
+        await renderTask.promise;
+        renderTask = null;
+        clearStatus();
+      } catch (error) {
+        if (error?.name !== "RenderingCancelledException") {
+          setStatus(errorLabel, "error");
+        }
+      } finally {
+        updateIndicator();
+        updateControls();
+      }
+    };
+
+    const changePage = (offset) => {
+      if (!pdfDocument) return;
+      const nextPage = pageNumber + offset;
+      if (nextPage < 1 || nextPage > pdfDocument.numPages) return;
+      pageNumber = nextPage;
+      void renderPage();
+    };
+
+    const changeZoom = (offset) => {
+      const nextZoom = Math.max(0.75, Math.min(2.5, zoomLevel + offset));
+      if (nextZoom === zoomLevel) return;
+      zoomLevel = nextZoom;
+      void renderPage();
+    };
+
+    prevButton?.addEventListener("click", () => changePage(-1));
+    nextButton?.addEventListener("click", () => changePage(1));
+    zoomOutButton?.addEventListener("click", () => changeZoom(-0.25));
+    zoomInButton?.addEventListener("click", () => changeZoom(0.25));
+
+    const onResize = () => {
+      if (!pdfDocument) return;
+      if (resizeTimer) window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        void renderPage();
+      }, 150);
+    };
+
+    window.addEventListener("resize", onResize);
+
+    try {
+      setStatus(loadingLabel);
+      const pdfjs = await loadPdfJs();
+      pdfDocument = await pdfjs.getDocument(src).promise;
+      updateIndicator();
+      updateControls();
+      await renderPage();
+    } catch (_error) {
+      setStatus(errorLabel, "error");
+      updateIndicator();
+      updateControls();
+    }
+  };
+
+  document.querySelectorAll("[data-pdf-viewer]").forEach((root) => {
+    void setupViewer(root);
+  });
+</script>
