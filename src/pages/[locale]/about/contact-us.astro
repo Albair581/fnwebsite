@@ -1,0 +1,62 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  guidePagesCopy,
+  localePath,
+  supportedLocales,
+  type SiteLocale,
+} from "../../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const common = commonCopy[locale];
+const copy = guidePagesCopy[locale].contact;
+const aboutNav = common.aboutNav;
+const supportEmail = "support@food-ninja.com";
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${copy.metaTitle} | ${common.appName}`}
+  description={copy.metaDescription}
+>
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow">{common.aboutSectionEyebrow}</p>
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.intro}</p>
+      <nav class="subnav">
+        <a href={localePath(locale, "about")} data-active="false">{aboutNav.overview}</a>
+        <a href={localePath(locale, "about/tos")} data-active="false">{aboutNav.tos}</a>
+        <a href={localePath(locale, "about/pp")} data-active="false">{aboutNav.pp}</a>
+        <a href={localePath(locale, "about/contact-us")} data-active="true">{aboutNav.contact}</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <h2>{copy.sectionsTitle}</h2>
+    <ul class="guide-list">
+      {
+        copy.sections.map((item) => (
+          <li>
+            <strong>{item.title}</strong>
+            <p>{item.prompt}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section-panel">
+    <p class="section-intro">{copy.note}</p>
+    <br>
+    <a class="btn btn--primary" href={`mailto:${supportEmail}`} target="_blank">{supportEmail}</a>
+  </section>
+</SiteLayout>

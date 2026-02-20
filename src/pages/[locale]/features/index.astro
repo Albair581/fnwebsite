@@ -1,0 +1,58 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  featuresHubCopy,
+  localePath,
+  supportedLocales,
+  type SiteLocale,
+} from "../../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const common = commonCopy[locale];
+const copy = featuresHubCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${copy.metaTitle} | ${common.appName}`}
+  description={copy.metaDescription}
+>
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.title}</h1>
+      <!-- <p class="lead">{copy.subtitle}</p> -->
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="feature-grid">
+      {
+        copy.cards.map((card) => (
+          <article class="feature-card" data-tilt>
+            <p class="feature-card__icon">{card.icon}</p>
+            <h3>{card.title}</h3>
+            <p>{card.summary}</p>
+            <ul>
+              {
+                card.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))
+              }
+            </ul>
+            <a class="inline-link" href={localePath(locale, `features/${card.slug}`)}>
+              {copy.exploreLabel}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</SiteLayout>

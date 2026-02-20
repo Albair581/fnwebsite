@@ -1,0 +1,96 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  featureDetailsCopy,
+  featureSlugs,
+  localePath,
+  supportedLocales,
+  type FeatureSlug,
+  type SiteLocale,
+} from "../../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.flatMap((locale) =>
+    featureSlugs.map((slug) => ({
+      params: { locale, slug },
+    })),
+  );
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const slug = Astro.params.slug as FeatureSlug;
+const common = commonCopy[locale];
+const detail = featureDetailsCopy[locale][slug];
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${detail.title} | ${common.appName}`}
+  description={detail.summary}
+>
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow">{detail.icon} {common.featureDetailEyebrow}</p>
+      <h1>{detail.title}</h1>
+      <p class="lead">{detail.summary}</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href={localePath(locale, "features")}>{common.backToFeaturesLabel}</a>
+        <a class="btn btn--ghost" href={localePath(locale, "about/contact-us")}>{common.contactLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <h2>{detail.valuePropsTitle}</h2>
+    <ul class="detail-list">
+      {
+        detail.valueProps.map((item) => (
+          <li>{item}</li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section-panel">
+    <h2>{detail.flowTitle}</h2>
+    <ul class="detail-flow">
+      {
+        detail.flow.map((item) => (
+          <li>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section-panel">
+    <h2>{detail.integrationsTitle}</h2>
+    <ul class="detail-list">
+      {
+        detail.integrations.map((item) => (
+          <li>{item}</li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section-panel">
+    <h2>{detail.mediaTitle}</h2>
+    <article class="media-card">
+      <button
+        class="asset-frame asset-frame--wide"
+        type="button"
+        aria-label={detail.title}
+        data-expand-src={detail.imagePath}
+        data-expand-alt={detail.mediaAlt}
+        data-expand-caption={detail.title}
+      >
+        <img src={detail.imagePath} alt={detail.mediaAlt} loading="lazy" decoding="async" />
+      </button>
+      <p>{detail.mediaCaption}</p>
+    </article>
+  </section>
+</SiteLayout>

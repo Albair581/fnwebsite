@@ -1,21 +1,70 @@
 ---
-import '../styles/global.css';
-import '@fontsource/noto-sans';
-import '@fontsource-variable/noto-sans-tc';
+import "../styles/global.css";
+
+const basePath = import.meta.env.BASE_URL;
+const enPath = `${basePath}en/`;
+const zhPath = `${basePath}zh-TW/`;
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
-		<link rel="icon" href="/favicon.ico?v=1" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Food Ninja</title>
-	</head>
-	<body>
-		<h1>Food Ninja</h1>
-		<h2>Track. Donate. Solve.</h2>
-		<h2>隨口記，隨心捐，隨口問。</h2>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+    <link rel="icon" href="/favicon.ico?v=1" />
+    <title>Food Ninja</title>
+  </head>
+  <body class="redirect-page">
+    <div class="redirect-shell">
+      <h1>Food Ninja</h1>
+      <p>Detecting your preferred locale and redirecting...</p>
+      <div class="redirect-links">
+        <a href={enPath}>English</a>
+        <a href={zhPath}>繁體中文</a>
+      </div>
+    </div>
+
+    <script
+      is:inline
+      define:vars={{ enPath, zhPath }}
+    >
+      (() => {
+        const localeStorageKey = "food-ninja-site-locale";
+        const saved = localStorage.getItem(localeStorageKey);
+        if (saved === "en") {
+          window.location.replace(enPath);
+          return;
+        }
+        if (saved === "zh-TW") {
+          window.location.replace(zhPath);
+          return;
+        }
+
+        const languages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+          ? navigator.languages
+          : [navigator.language || "en"];
+
+        let target = enPath;
+        for (const language of languages) {
+          const normalized = String(language).toLowerCase();
+          if (
+            normalized.startsWith("zh-tw") ||
+            normalized.startsWith("zh-hant") ||
+            normalized.startsWith("zh")
+          ) {
+            target = zhPath;
+            break;
+          }
+          if (normalized.startsWith("en")) {
+            target = enPath;
+            break;
+          }
+        }
+
+        window.location.replace(target);
+      })();
+    </script>
+  </body>
 </html>

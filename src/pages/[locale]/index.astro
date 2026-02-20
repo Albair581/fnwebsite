@@ -1,0 +1,134 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  localePath,
+  overviewCopy,
+  supportedLocales,
+  type SiteLocale,
+} from "../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const common = commonCopy[locale];
+const copy = overviewCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${copy.metaTitle} | ${common.appName}`}
+  description={copy.metaDescription}
+>
+  <section class="page-hero">
+    <div>
+      <!-- <p class="eyebrow">{copy.eyebrow}</p> -->
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.subtitle}</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href={localePath(locale, "features")}>{copy.ctaPrimary}</a>
+        <a href="https://apps.apple.com/app/id0000000000" rel="noreferrer" target="_blank">
+          <img src={common.iosDownloadLabel} alt="iOS Download" height="50px">
+        </a>
+        <a class="btn btn--ghost" href={localePath(locale, "about/contact-us")}>{copy.ctaSecondary}</a>
+      </div>
+      <div class="hero-badges">
+        {
+          copy.quickBadges.map((badge) => (
+            <span>{badge}</span>
+          ))
+        }
+      </div>
+    </div>
+
+    <aside class="hero-visual" data-tilt>
+      <div class="hero-visual__row">
+        <article class="mini-card">
+          <strong>{copy.visualCards.firstName}</strong>
+          <small>{copy.visualCards.firstEta}</small>
+        </article>
+        <article class="mini-card">
+          <strong>{copy.visualCards.secondName}</strong>
+          <small>{copy.visualCards.secondEta}</small>
+        </article>
+      </div>
+      <div class="hero-visual__row">
+        <article class="mini-card">
+          <strong>{copy.visualCards.aiLabel}</strong>
+          <small>{copy.visualCards.aiSub}</small>
+        </article>
+        <article class="mini-card">
+          <strong>{copy.visualCards.donationLabel}</strong>
+          <small>{copy.visualCards.donationSub}</small>
+        </article>
+      </div>
+      <article class="mini-card">
+        <strong>{copy.visualCards.syncLabel}</strong>
+        <small>{copy.visualCards.syncSub}</small>
+      </article>
+    </aside>
+  </section>
+
+  <section class="section-panel">
+    <div class="kpi-grid">
+      {
+        copy.kpis.map((kpi) => (
+          <article class="kpi-card">
+            <strong>
+              <span data-countup data-target={String(kpi.value)}>0</span>
+              {kpi.suffix}
+            </strong>
+            <p>{kpi.label}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <h2>{copy.howTitle}</h2>
+    <!-- <p class="section-intro">{copy.howIntro}</p> -->
+    <div class="steps-grid">
+      {
+        copy.steps.map((step) => (
+          <article class="step-card">
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <h2>{copy.galleryTitle}</h2>
+    <!-- <p class="section-intro">{copy.galleryIntro}</p> -->
+    <!-- TODO: MAKE IMAGES EXPANDABLE -->
+    <div class="gallery-grid">
+      {
+        copy.gallery.map((item) => (
+          <article class="gallery-card">
+            <button
+              class="asset-frame"
+              type="button"
+              aria-label={item.title}
+              data-expand-src={item.imagePath}
+              data-expand-alt={item.alt}
+              data-expand-caption={item.title}
+            >
+              <img src={item.imagePath} alt={item.alt} loading="lazy" decoding="async" />
+            </button>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</SiteLayout>

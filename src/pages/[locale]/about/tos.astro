@@ -1,0 +1,90 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  guidePagesCopy,
+  localePath,
+  supportedLocales,
+  type SiteLocale,
+} from "../../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const common = commonCopy[locale];
+const copy = guidePagesCopy[locale].tos;
+const aboutNav = common.aboutNav;
+const setupTitle =
+  locale === "zh-TW" ? "未來導入正式條款方式" : "How to add final Terms later";
+const setupSteps =
+  locale === "zh-TW"
+    ? [
+        "將完整條款文字放入 `public/legal/tos-zh-TW.txt`（繁中）與 `public/legal/tos-en.txt`（英文）。",
+        "如需 PDF 下載，將檔案放在 `public/legal/tos-zh-TW.pdf` 與 `public/legal/tos-en.pdf`。",
+        "若要在網頁直接呈現長文，請在此頁新增完整段落或改為載入 Markdown 檔案。",
+      ]
+    : [
+        "Put full Terms text in `public/legal/tos-en.txt` (English) and `public/legal/tos-zh-TW.txt` (Traditional Chinese).",
+        "For PDF download, add `public/legal/tos-en.pdf` and `public/legal/tos-zh-TW.pdf`.",
+        "If you want the full long-form text rendered on page, replace this template block with your final content.",
+      ];
+const downloadLabel = locale === "zh-TW" ? "下載目前條款文字檔" : "Download current Terms text";
+const downloadHref = locale === "zh-TW" ? "/legal/tos-zh-TW.txt" : "/legal/tos-en.txt";
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${copy.metaTitle} | ${common.appName}`}
+  description={copy.metaDescription}
+>
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow">{common.aboutSectionEyebrow}</p>
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.intro}</p>
+      <nav class="subnav">
+        <a href={localePath(locale, "about")} data-active="false">{aboutNav.overview}</a>
+        <a href={localePath(locale, "about/tos")} data-active="true">{aboutNav.tos}</a>
+        <a href={localePath(locale, "about/pp")} data-active="false">{aboutNav.pp}</a>
+        <a href={localePath(locale, "about/contact-us")} data-active="false">{aboutNav.contact}</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- TODO: COMMENT WHEN FINISHED, KEEP BOTTOM SECTION ONLY -->
+  <section class="section-panel">
+    <h2>{copy.sectionsTitle}</h2>
+    <ul class="guide-list">
+      {
+        copy.sections.map((item) => (
+          <li>
+            <strong>{item.title}</strong>
+            <p>{item.prompt}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- <section class="section-panel">
+    <p class="section-intro">{copy.note}</p>
+  </section> -->
+
+  <section class="section-panel">
+    <h2>{setupTitle}</h2>
+    <ul class="guide-list">
+      {
+        setupSteps.map((step) => (
+          <li>
+            <p>{step}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
+  </section>
+</SiteLayout>

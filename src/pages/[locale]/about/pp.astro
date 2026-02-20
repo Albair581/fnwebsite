@@ -1,0 +1,87 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import {
+  commonCopy,
+  guidePagesCopy,
+  localePath,
+  supportedLocales,
+  type SiteLocale,
+} from "../../../lib/site-copy";
+
+export function getStaticPaths() {
+  return supportedLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const locale = Astro.params.locale as SiteLocale;
+const common = commonCopy[locale];
+const copy = guidePagesCopy[locale].pp;
+const aboutNav = common.aboutNav;
+const setupTitle =
+  locale === "zh-TW" ? "未來導入正式隱私政策方式" : "How to add final Privacy Policy later";
+const setupSteps =
+  locale === "zh-TW"
+    ? [
+        "將完整隱私政策放入 `public/legal/pp-zh-TW.txt`（繁中）與 `public/legal/pp-en.txt`（英文）。",
+        "如需 PDF 下載，放入 `public/legal/pp-zh-TW.pdf` 與 `public/legal/pp-en.pdf`。",
+        "若要網頁直接顯示長文，請用你的正式段落替換本頁模板區塊。",
+      ]
+    : [
+        "Put full Privacy text in `public/legal/pp-en.txt` (English) and `public/legal/pp-zh-TW.txt` (Traditional Chinese).",
+        "For PDF download, add `public/legal/pp-en.pdf` and `public/legal/pp-zh-TW.pdf`.",
+        "If you want the full long-form text shown on page, replace this template block with your final policy.",
+      ];
+const downloadLabel =
+  locale === "zh-TW" ? "下載目前隱私政策文字檔" : "Download current Privacy text";
+const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.txt";
+---
+
+<SiteLayout
+  locale={locale}
+  title={`${copy.metaTitle} | ${common.appName}`}
+  description={copy.metaDescription}
+>
+  <section class="page-hero page-hero--compact">
+    <div>
+      <p class="eyebrow">{common.aboutSectionEyebrow}</p>
+      <h1>{copy.title}</h1>
+      <p class="lead">{copy.intro}</p>
+      <nav class="subnav">
+        <a href={localePath(locale, "about")} data-active="false">{aboutNav.overview}</a>
+        <a href={localePath(locale, "about/tos")} data-active="false">{aboutNav.tos}</a>
+        <a href={localePath(locale, "about/pp")} data-active="true">{aboutNav.pp}</a>
+        <a href={localePath(locale, "about/contact-us")} data-active="false">{aboutNav.contact}</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- TODO: COMMENT WHEN FINISHED, KEEP BOTTOM SECTION ONLY -->
+  <section class="section-panel">
+    <h2>{copy.sectionsTitle}</h2>
+    <ul class="guide-list">
+      {
+        copy.sections.map((item) => (
+          <li>
+            <strong>{item.title}</strong>
+            <p>{item.prompt}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section-panel">
+    <h2>{setupTitle}</h2>
+    <ul class="guide-list">
+      {
+        setupSteps.map((step) => (
+          <li>
+            <p>{step}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
+  </section>
+</SiteLayout>

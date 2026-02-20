@@ -1,0 +1,272 @@
+---
+import "../styles/global.css";
+import "@fontsource/noto-sans";
+import "@fontsource-variable/noto-sans-tc";
+import {
+  commonCopy,
+  localePath,
+  supportedLocales,
+  switchLocaleInPath,
+  type SiteLocale,
+} from "../lib/site-copy";
+
+interface Props {
+  locale: SiteLocale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const copy = commonCopy[locale];
+const currentPath = Astro.url.pathname;
+const homePath = localePath(locale);
+
+const navLinks = [
+  { label: copy.nav.overview, href: localePath(locale) },
+  { label: copy.nav.features, href: localePath(locale, "features") },
+  { label: copy.nav.pricing, href: localePath(locale, "pricing") },
+  { label: copy.nav.about, href: localePath(locale, "about") },
+];
+
+const localeLinks = supportedLocales.map((targetLocale) => ({
+  locale: targetLocale,
+  label: commonCopy[targetLocale].languageLabel,
+  href: switchLocaleInPath(currentPath, targetLocale),
+  active: targetLocale === locale,
+}));
+
+const isActive = (href: string): boolean => {
+  if (href === homePath) return currentPath === homePath;
+  return currentPath.startsWith(href);
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
+    <link rel="icon" href="/favicon.ico?v=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="bg-orb bg-orb--one"></div>
+    <div class="bg-orb bg-orb--two"></div>
+    <div class="site-frame">
+      <header class="site-header">
+        <a class="brand" href={localePath(locale)}>
+          <span class="brand__logo"><img src="/favicon.svg" alt="Food Ninja Logo" width="26px" height="auto"></span>
+          <span class="brand__text">
+            <strong>{copy.appName}</strong>
+            <small>{copy.tagline}</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main">
+          {
+            navLinks.map((item) => (
+              <a href={item.href} data-active={isActive(item.href) ? "true" : "false"}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="locale-switcher" aria-label={copy.switchLanguageLabel}>
+          {
+            localeLinks.map((item) => (
+              <a
+                href={item.href}
+                data-locale-choice={item.locale}
+                data-active={item.active ? "true" : "false"}
+                aria-current={item.active ? "true" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>{copy.footerText}</p>
+        <p class="site-footer__note">{copy.footerNote}</p>
+      </footer>
+    </div>
+
+    <div class="lightbox" id="media-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
+      <button class="lightbox__close" type="button" data-lightbox-close aria-label="Close image">×</button>
+      <figure class="lightbox__figure">
+        <div class="lightbox__viewport">
+          <img src="" alt="" loading="lazy" />
+        </div>
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+    </div>
+
+    <script is:inline>
+      (() => {
+        const localeStorageKey = "food-ninja-site-locale";
+        document.querySelectorAll("[data-locale-choice]").forEach((link) => {
+          link.addEventListener("click", () => {
+            const nextLocale = link.getAttribute("data-locale-choice");
+            if (nextLocale) {
+              localStorage.setItem(localeStorageKey, nextLocale);
+            }
+          });
+        });
+
+        const counters = document.querySelectorAll("[data-countup]");
+        if (counters.length > 0) {
+          const animateCounter = (node) => {
+            const target = Number(node.getAttribute("data-target") || "0");
+            if (!Number.isFinite(target)) return;
+            const start = performance.now();
+            const duration = 900;
+
+            const frame = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const value = Math.round(target * progress);
+              node.textContent = String(value);
+              if (progress < 1) {
+                requestAnimationFrame(frame);
+              }
+            };
+
+            requestAnimationFrame(frame);
+          };
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const node = entry.target;
+                  if (!node.getAttribute("data-played")) {
+                    node.setAttribute("data-played", "true");
+                    animateCounter(node);
+                  }
+                }
+              });
+            },
+            { threshold: 0.4 },
+          );
+
+          counters.forEach((counter) => observer.observe(counter));
+        }
+
+        document.querySelectorAll("[data-tilt]").forEach((card) => {
+          card.addEventListener("pointermove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+            const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+            const rotateY = offsetX * 10;
+            const rotateX = -offsetY * 10;
+            card.style.transform =
+              "perspective(900px) rotateX(" +
+              rotateX.toFixed(2) +
+              "deg) rotateY(" +
+              rotateY.toFixed(2) +
+              "deg) translateY(-2px)";
+          });
+
+          card.addEventListener("pointerleave", () => {
+            card.style.transform = "";
+          });
+        });
+
+        const lightbox = document.querySelector("#media-lightbox");
+        const lightboxImage = lightbox?.querySelector("img");
+        const lightboxViewport = lightbox?.querySelector(".lightbox__viewport");
+        const lightboxCaption = lightbox?.querySelector(".lightbox__caption");
+        const closeButtons = lightbox?.querySelectorAll("[data-lightbox-close]") || [];
+
+        const closeLightbox = () => {
+          if (!(lightbox instanceof HTMLElement)) return;
+          lightbox.hidden = true;
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("lightbox-open");
+          if (lightboxImage instanceof HTMLImageElement) {
+            lightboxImage.removeAttribute("src");
+          }
+        };
+
+        const openLightbox = (src, alt, caption) => {
+          if (
+            !(lightbox instanceof HTMLElement) ||
+            !(lightboxImage instanceof HTMLImageElement) ||
+            !(lightboxViewport instanceof HTMLElement) ||
+            !(lightboxCaption instanceof HTMLElement)
+          ) {
+            return;
+          }
+
+          lightboxImage.src = src;
+          lightboxImage.alt = alt || "";
+          lightboxCaption.textContent = caption || "";
+          lightbox.hidden = false;
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lightbox-open");
+
+          const centerViewport = () => {
+            const maxX = lightboxViewport.scrollWidth - lightboxViewport.clientWidth;
+            const maxY = lightboxViewport.scrollHeight - lightboxViewport.clientHeight;
+            lightboxViewport.scrollLeft = maxX > 0 ? Math.floor(maxX / 2) : 0;
+            lightboxViewport.scrollTop = maxY > 0 ? Math.floor(maxY / 2) : 0;
+          };
+
+          if (lightboxImage.complete) {
+            requestAnimationFrame(centerViewport);
+          } else {
+            lightboxImage.addEventListener("load", centerViewport, { once: true });
+          }
+        };
+
+        document.querySelectorAll("[data-expand-src]").forEach((node) => {
+          const activate = () => {
+            const src = node.getAttribute("data-expand-src");
+            if (!src) return;
+            openLightbox(
+              src,
+              node.getAttribute("data-expand-alt") || "",
+              node.getAttribute("data-expand-caption") || "",
+            );
+          };
+
+          node.addEventListener("click", activate);
+          if (!(node instanceof HTMLButtonElement) && !(node instanceof HTMLAnchorElement)) {
+            node.addEventListener("keydown", (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                activate();
+              }
+            });
+          }
+        });
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", closeLightbox);
+        });
+
+        lightbox?.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeLightbox();
+          }
+        });
+
+      })();
+    </script>
+  </body>
+</html>
