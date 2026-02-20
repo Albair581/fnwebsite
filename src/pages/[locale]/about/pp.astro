@@ -57,7 +57,7 @@ const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.
   </section>
 
   <!-- TODO: COMMENT WHEN FINISHED, KEEP BOTTOM SECTION ONLY -->
-  <section class="section-panel">
+  <!-- <section class="section-panel">
     <h2>{copy.sectionsTitle}</h2>
     <ul class="guide-list">
       {
@@ -69,10 +69,10 @@ const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.
         ))
       }
     </ul>
-  </section>
+  </section> -->
 
   <section class="section-panel">
-    <h2>{setupTitle}</h2>
+    <!-- <h2>{setupTitle}</h2>
     <ul class="guide-list">
       {
         setupSteps.map((step) => (
@@ -81,7 +81,7 @@ const downloadHref = locale === "zh-TW" ? "/legal/pp-zh-TW.txt" : "/legal/pp-en.
           </li>
         ))
       }
-    </ul>
+    </ul> -->
     <a class="btn btn--ghost" href={downloadHref} download>{downloadLabel}</a>
   </section>
 </SiteLayout>
