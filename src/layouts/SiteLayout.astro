@@ -9,6 +9,7 @@ import {
   switchLocaleInPath,
   type SiteLocale,
 } from "../lib/site-copy";
+import { absoluteUrl } from "../lib/seo";
 
 interface Props {
   locale: SiteLocale;
@@ -20,6 +21,10 @@ const { locale, title, description } = Astro.props;
 const copy = commonCopy[locale];
 const currentPath = Astro.url.pathname;
 const homePath = localePath(locale);
+const canonicalUrl = absoluteUrl(currentPath, Astro.site);
+const enUrl = absoluteUrl(localePath("en"), Astro.site);
+const zhTwUrl = absoluteUrl(localePath("zh-TW"), Astro.site);
+const defaultUrl = absoluteUrl("/", Astro.site);
 
 const navLinks = [
   { label: copy.nav.overview, href: localePath(locale) },
@@ -49,9 +54,10 @@ const isActive = (href: string): boolean => {
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1" />
     <link rel="icon" href="/favicon.ico?v=1" />
-    <link rel="alternate" hreflang="en" href="https://yourdomain.com/en/" />
-    <link rel="alternate" hreflang="zh-Hant" href="https://yourdomain.com/zh-TW/" />
-    <link rel="alternate" hreflang="x-default" href="https://yourdomain.com/" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="zh-Hant" href={zhTwUrl} />
+    <link rel="alternate" hreflang="x-default" href={defaultUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
