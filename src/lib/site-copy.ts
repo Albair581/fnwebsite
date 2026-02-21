@@ -1250,7 +1250,7 @@ export const guidePagesCopy: Record<
             "Food Ninja currently has no official social media channels. Email is our only official contact method.",
         },
       ],
-      note: "If you add more channels later, keep this page as the single source of truth.",
+      note: "If we add more official contact channels in the future, use this page as the only official source of truth.",
     },
   },
   "zh-TW": {
