@@ -22,7 +22,7 @@ export const GET: APIRoute = ({ site }) => {
     ...featureSlugs.map((slug) => localePath(locale, `features/${slug}`)),
   ]);
 
-  const paths = uniquePaths(["/", ...localizedPaths]);
+  const paths = uniquePaths([...localizedPaths]);
   const urls = paths.map((path) => absoluteUrl(path, site));
   const lastmod = new Date().toISOString().split("T")[0];
 
