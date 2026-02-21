@@ -186,7 +186,7 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
     },
     footerText:
       "Food Ninja combines camera capture, voice logging, AI planning, and donation safety checks to reduce waste.",
-    footerNote: "If your fridge had a COO, this would be it.",
+    footerNote: "If your food items had a COO, this would be it.",
   },
   "zh-TW": {
     appName: "Food Ninja",
@@ -212,7 +212,7 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
       contact: "聯絡",
     },
     footerText: "Food Ninja 結合拍照辨識、語音記錄、AI 規劃與捐贈安全判斷，幫你有效減少浪費。",
-    footerNote: "冰箱也值得一位專業管理師。",
+    footerNote: "食品也值得一位專業管理師。",
   },
 };
 
@@ -222,7 +222,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
     metaDescription:
       "A static landing site for Food Ninja: capture expiry data, get AI recipes and meal plans, and donate safely.",
     eyebrow: "Built from your iOS app + server capabilities",
-    title: "Your fridge just hired a ninja.",
+    title: "Your food items just hired a ninja.",
     subtitle:
       "Snap or speak your food items, track expiry dates, and get AI-powered recipe, meal-plan, and donation guidance before food goes bad.",
     ctaPrimary: "Explore Features",
@@ -307,7 +307,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
     metaDescription:
       "Food Ninja 靜態介紹網站：拍照或語音記錄食物、取得 AI 食譜與餐計畫、並進行安全捐贈判斷。",
     eyebrow: "根據你的 iOS App 與後端功能整理",
-    title: "你的冰箱，現在有忍者管家。",
+    title: "你的食品，現在有忍者管家。",
     subtitle:
       "用拍照或語音快速記錄食物，追蹤到期日，並在變質前獲得 AI 食譜、餐計畫與捐贈建議。",
     ctaPrimary: "查看功能",
