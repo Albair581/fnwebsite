@@ -385,7 +385,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
   en: {
     metaTitle: "Food Ninja Pricing",
     metaDescription:
-      "Pricing page for Food Ninja with configurable plan structure.",
+      "Pricing page for Food Ninja with clear plan structure.",
     eyebrow: "Pricing",
     title: "Choose a plan that fits your kitchen.",
     subtitle:
@@ -460,7 +460,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
   },
   "zh-TW": {
     metaTitle: "Food Ninja 定價",
-    metaDescription: "Food Ninja 定價頁，已預留三種方案可後續設定。",
+    metaDescription: "Food Ninja 定價頁，詳細的方案資訊。",
     eyebrow: "定價",
     title: "選擇最適合你的方案",
     subtitle:
@@ -1218,10 +1218,10 @@ export const guidePagesCopy: Record<
     contact: {
       metaTitle: "Contact Food Ninja",
       metaDescription:
-        "Single-channel contact page for support, business, and privacy requests.",
+        "Food Ninja's contact information.",
       title: "Contact Us",
       intro:
-        "For now, all inquiries are handled through one email inbox.",
+        "We are grateful and welcome you to reach out to us, here is our contact information.",
       sectionsTitle: "Contact Policy",
       sections: [
         {
@@ -1333,9 +1333,9 @@ export const guidePagesCopy: Record<
     },
     contact: {
       metaTitle: "聯絡 Food Ninja",
-      metaDescription: "單一信箱處理客服、商務與隱私聯絡需求。",
+      metaDescription: "Food Ninja 的聯絡資訊頁面.",
       title: "聯絡我們",
-      intro: "目前所有需求統一由單一信箱處理。",
+      intro: "我們非常歡迎您聯繫我們，以下是我們的聯絡資訊。",
       sectionsTitle: "聯絡政策",
       sections: [
         {
