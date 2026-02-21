@@ -1225,29 +1225,29 @@ export const guidePagesCopy: Record<
       sectionsTitle: "Contact Policy",
       sections: [
         {
-          title: "Our support inbox",
+          title: "Support",
           prompt:
-            "For general customer support, please email us at: support@food-ninja.com",
+            "For general support, technical issues, or account-related questions, please email: support@food-ninja.com",
         },
         {
-          title: "Privacy inquiries",
+          title: "Privacy & Data",
           prompt:
-            "For privacy concerns, please email us at: privacy@food-ninja.com",
+            "For privacy questions or data-related requests, please email: privacy@food-ninja.com",
         },
         {
-          title: "Legal inquiries",
+          title: "Legal",
           prompt:
-            "For legal requests, please email us at: legal@food-ninja.com",
+            "For formal notices or legal matters, please email: legal@food-ninja.com",
         },
         {
-          title: "Contact our developer",
+          title: "Business Inquiries",
           prompt:
-            "To contact our developer directly, please email: alberthuang@food-ninja.com",
+            "For partnership or business-related inquiries, please email: alberthuang@food-ninja.com",
         },
         {
-          title: "No social channels",
+          title: "Official Communication",
           prompt:
-            "Food Ninja currently has no official social media channels. Email is the only official contact method.",
+            "Food Ninja currently has no official social media channels. Email is our only official contact method.",
         },
       ],
       note: "If you add more channels later, keep this page as the single source of truth.",
@@ -1339,29 +1339,29 @@ export const guidePagesCopy: Record<
       sectionsTitle: "聯絡政策",
       sections: [
         {
-          title: "客服信箱",
+          title: "客服支援",
           prompt:
-            "一般客服問題，請寄到：support@food-ninja.com",
+            "一般客服問題、技術問題或帳號相關協助，請寄信至：support@food-ninja.com",
         },
         {
-          title: "隱私相關聯絡",
+          title: "隱私與資料",
           prompt:
-            "有關隱私及個資問題，請寄到：privacy@food-ninja.com",
+            "隱私問題或個人資料相關申請，請寄信至：privacy@food-ninja.com",
         },
         {
-          title: "法律相關聯絡",
+          title: "法律事項",
           prompt:
-            "有關法律相關問題，請寄到：legal@food-ninja.com",
+            "正式通知或法律相關事項，請寄信至：legal@food-ninja.com",
         },
         {
-          title: "聯絡開發者",
+          title: "商務合作",
           prompt:
-            "若要直接聯絡開發者，請寄信到：alberthuang@food-ninja.com",
+            "合作或其他商務相關詢問，請寄信至：alberthuang@food-ninja.com",
         },
         {
-          title: "沒有社群帳號",
+          title: "官方聯絡方式",
           prompt:
-            "Food Ninja 目前沒有任何官方社群平台。電子郵件是唯一正式聯絡管道。",
+            "Food Ninja 目前沒有任何官方社群平台，電子郵件為唯一正式聯絡方式。",
         },
       ],
       note: "若未來新增更多聯絡管道，請以此頁作為唯一官方資訊來源。",
