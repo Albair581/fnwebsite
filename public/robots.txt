@@ -1,6 +1,2 @@
 User-agent: *
-Disallow: /
-Allow: /en/about/tos
-Allow: /en/about/pp
-Allow: /zh-TW/about/tos
-Allow: /zh-TW/about/pp
+Allow: /
