@@ -4,6 +4,7 @@ import "@fontsource/noto-sans";
 import "@fontsource-variable/noto-sans-tc";
 import {
   commonCopy,
+  defaultLocale,
   localePath,
   supportedLocales,
   switchLocaleInPath,
@@ -24,7 +25,7 @@ const homePath = localePath(locale);
 const canonicalUrl = absoluteUrl(currentPath, Astro.site);
 const enUrl = absoluteUrl(localePath("en"), Astro.site);
 const zhTwUrl = absoluteUrl(localePath("zh-TW"), Astro.site);
-const defaultUrl = absoluteUrl("/", Astro.site);
+const defaultUrl = absoluteUrl(localePath(defaultLocale), Astro.site);
 
 const navLinks = [
   { label: copy.nav.overview, href: localePath(locale) },
