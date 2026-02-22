@@ -220,7 +220,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
   en: {
     metaTitle: "Food Ninja Overview",
     metaDescription:
-      "A static landing site for Food Ninja: capture expiry data, get AI recipes and meal plans, and donate safely.",
+      "Reduce food waste: capture expiry data, get AI recipes and meal plans, and donate safely.",
     eyebrow: "Built from your iOS app + server capabilities",
     title: "Your food items just hired a ninja.",
     subtitle:
@@ -305,7 +305,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
   "zh-TW": {
     metaTitle: "Food Ninja 總覽",
     metaDescription:
-      "Food Ninja 靜態介紹網站：拍照或語音記錄食物、取得 AI 食譜與餐計畫、並進行安全捐贈判斷。",
+      "減少食物浪費：拍照或語音記錄食物、取得 AI 食譜與餐計畫、並進行安全捐贈判斷。",
     eyebrow: "根據你的 iOS App 與後端功能整理",
     title: "你的食品，現在有忍者管家。",
     subtitle:
