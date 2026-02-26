@@ -518,7 +518,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         name: "主廚方案",
         price: "US$15.99",
         billing: "/月",
-        description: "高階方案占位，可替換為你的正式內容。",
+        description: "最進階方案，提供最高使用數量與最高級 AI 功能。",
         bullets: [
           "自帶方案的所有功能",
           "相比免費方案100倍的每月 AI 聊天次數", 
