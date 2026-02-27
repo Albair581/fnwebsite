@@ -415,6 +415,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         bullets: [
           "Everything in Built-in",
           "Completely free to use with a Food Ninja account",
+          "No access to Google Search with AI chat",
           "Access to limited monthly chat usage",
           "Access to limited monthly voice log and capture usage",
           "Basic models in AI chat"
@@ -430,6 +431,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         description: "The recommended plan to access our AI features.",
         bullets: [
           "Everything in Built-in",
+          "Able to request for search feature with AI chat",
           "20x monthly chat usage compared to Freemium",
           "40x monthly voice log and capture usage compared to Freemium",
           "Same model as Freemium in AI chat but with search capability",
@@ -446,6 +448,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         description: "Our best plan for power users who want to maximize their AI benefits.",
         bullets: [
           "Everything in Built-in",
+          "Able to request for search feature with AI chat",
           "100x monthly chat usage compared to Freemium",
           "Unlimited voice log and capture usage",
           "Access to advanced models in AI chat with search and reasoning capabilities",
@@ -490,6 +493,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         bullets: [
           "自帶方案的所有功能",
           "只要有 Food Ninja 帳號就都可免費使用",
+          "不可在 AI 聊天中使用上網搜尋功能",
           "可使用有限的每月聊天次數",
           "可使用有限的每月語音紀錄次數",
           "AI 聊天功能中使用基本 AI 模型"
@@ -505,6 +509,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         description: "我們推薦的方案，讓您體驗更強大的 AI 功能。",
         bullets: [
           "自帶方案的所有功能",
+          "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案20倍的每月 AI 聊天次數",
           "相比免費方案40倍的每月語音、拍照紀錄次數",
           "與免費方案相同的 AI 模型，但具備搜尋功能"
@@ -521,6 +526,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         description: "最進階方案，提供最高使用數量與最高級 AI 功能。",
         bullets: [
           "自帶方案的所有功能",
+          "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案100倍的每月 AI 聊天次數", 
           "無限的語音、拍照紀錄次數", 
           "最進階的 AI 聊天模型，具備搜尋功能"
