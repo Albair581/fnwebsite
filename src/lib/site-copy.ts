@@ -425,7 +425,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Edit this card in `src/lib/site-copy.ts` under `pricingCopy.en.plans[0]`.",
       },
       {
-        name: "Pantry Plan",
+        name: "Helper Plan",
         price: "US$4.99",
         billing: "/month",
         description: "The recommended plan to access our AI features.",
@@ -442,7 +442,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         highlighted: true,
       },
       {
-        name: "Chef Plan",
+        name: "Ninja Plan",
         price: "US$15.99",
         billing: "/month",
         description: "Our best plan for power users who want to maximize their AI benefits.",
@@ -503,7 +503,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "請在 `src/lib/site-copy.ts` 的 `pricingCopy[\"zh-TW\"].plans[0]` 修改。",
       },
       {
-        name: "管家方案",
+        name: "助手方案",
         price: "US$4.99",
         billing: "/月",
         description: "我們推薦的方案，讓您體驗更強大的 AI 功能。",
@@ -520,7 +520,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
         highlighted: true,
       },
       {
-        name: "主廚方案",
+        name: "忍者方案",
         price: "US$15.99",
         billing: "/月",
         description: "最進階方案，提供最高使用數量與最高級 AI 功能。",
