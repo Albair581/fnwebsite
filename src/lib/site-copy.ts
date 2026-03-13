@@ -42,6 +42,7 @@ type CommonCopy = {
   backToFeaturesLabel: string;
   contactLabel: string;
   iosDownloadLabel: string;
+  testFlightSignUpLabel: string;
   pricingSetupTitle: string;
   nav: NavCopy;
   aboutNav: AboutNavCopy;
@@ -171,6 +172,7 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
     backToFeaturesLabel: "Back to Features",
     contactLabel: "Contact Us",
     iosDownloadLabel: "/images/download-en.svg",
+    testFlightSignUpLabel: "Join TestFlight Beta",
     pricingSetupTitle: "Plan setup checklist",
     nav: {
       overview: "Overview",
@@ -198,6 +200,7 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
     backToFeaturesLabel: "返回功能頁",
     contactLabel: "聯絡我們",
     iosDownloadLabel: "/images/download-zh-TW.svg",
+    testFlightSignUpLabel: "加入 TestFlight 公測",
     pricingSetupTitle: "方案設定清單",
     nav: {
       overview: "總覽",

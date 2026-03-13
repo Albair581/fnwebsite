@@ -47,6 +47,7 @@ const isActive = (href: string): boolean => {
 };
 const ppText = locale == "zh-TW" ? "隱私政策" : "Privacy Policy";
 const tosText = locale == "zh-TW" ? "服務條款" : "Terms of Service";
+const docText = locale == "zh-TW" ? "技術文件" : "Technical Documentation";
 const copyrightText = "2026 © Albert Huang";
 ---
 
@@ -118,6 +119,8 @@ const copyrightText = "2026 © Albert Huang";
           <a href={localePath(locale, "about/pp")}>{ppText}</a>
           <span aria-hidden="true">·</span>
           <a href={localePath(locale, "about/tos")}>{tosText}</a>
+          <span aria-hidden="true">·</span>
+          <a href="/legal/FoodNinja_Technical_Documentation.pdf">{docText}</a>
           <span aria-hidden="true">·</span>
           <span>{copyrightText}</span>
         </p>
