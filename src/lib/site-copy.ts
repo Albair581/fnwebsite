@@ -1147,17 +1147,17 @@ export const guidePagesCopy: Record<
         {
           title: "Mission",
           prompt:
-            "Food Ninja exists to reduce food waste starting from each household. The app focuses on the real kitchen workflow: capture what you bought, remember what expires first, and take action early with reminders, recipes, and donation-safe options.",
+            "Food Ninja exists to reduce waste starting from each household. The app focuses on the real kitchen workflow: capture what you bought, remember what expires first, and take action early with reminders, recipes, and donation-safe options. We also provide a manually documented and researched donation database for users to donate excess food or items to, helping other people at the same time.",
         },
         {
           title: "Origin Story",
           prompt:
-            "This started as a school project while learning how large the food-waste problem is. A recurring household pattern drove the build: food gets bought, placed in a cabinet or fridge, forgotten, then discovered only after expiration and thrown away.",
+            "This started as a school project while learning how serious food waste and all kinds of item waste can be. A recurring household pattern drove the build: food or household items gets bought, placed somewhere, forgotten, then discovered only after expiration and thrown away.",
         },
         {
           title: "Team",
           prompt:
-            "Developer: Albert Huang. The project direction was shaped with support from his school project classmates, who proposed the original idea and his teacher, who guided the process. Also thanks his mom, who supported the project through development and iteration.",
+            "The project direction was shaped with support from my school project classmates & teacher, who proposed the original idea and guided the process. And my mom who supported the project through development and iteration.",
         },
       ],
       note: "Food Ninja is still evolving from school project to production product, with the same mission at its core.",
@@ -1273,17 +1273,17 @@ export const guidePagesCopy: Record<
         {
           title: "使命",
           prompt:
-            "Food Ninja 的使命是從每一個家庭開始減少食物浪費。產品設計聚焦在真實生活流程：先把買回來的食材快速記錄、再用到期管理防止遺忘、最後用食譜與捐贈建議把浪費降到最低。",
+            "Food Ninja 的宗旨是從每個家庭做起，減少物資浪費。這款應用程式著重於真實的流程：記錄您購買的食物或物品、掌握哪些食物或物品即將過期，並透過提醒、食譜以及安全的捐贈選項，讓您及早採取行動。我們還提供一個經人工記錄與查詢建置的捐贈資料庫，讓使用者能將多餘的食物、物品捐贈出去，同時幫助他人。",
         },
         {
           title: "起源故事",
           prompt:
-            "這是一個學校專題。課堂學習中發現食物浪費是很大的社會問題，於是開始打造 Food Ninja。家庭常見情境是：買了食物放進櫃子或冰箱，過一陣子忘記，最後過期只能整批丟掉。",
+            "這一切始於一項學校專題，當時我正了解食物浪費問題有多麼嚴重。促使我製作這個作品的，是家中反覆出現的一種模式：買回的食物或居家用品被存放起來，隨後便被遺忘，直到過期後才被發現，最終只能丟棄。",
         },
         {
           title: "團隊",
           prompt:
-            "開發者是黃聿辰。專題方向由學校分組專案的同組同學提出並由老師在過程中持續指導；同時也有媽媽在整個開發歷程中的支持與協助，讓這個校園專案能逐步走向可用產品。",
+            "專題方向由原本學校專案的同組同學以及老師提出並在過程中持續指導；同時也有媽媽在整個開發歷程中的支持與協助，讓這個校園專案能逐步走向可用產品。",
         },
       ],
       note: "Food Ninja 目前仍在持續迭代，但核心目標始終是讓家庭更容易避免食物浪費。",
