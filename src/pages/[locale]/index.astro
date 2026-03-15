@@ -31,11 +31,11 @@ const copy = overviewCopy[locale];
       <p class="lead">{copy.subtitle}</p>
       <div class="hero-actions">
         <a class="btn btn--primary" href={localePath(locale, "features")}>{copy.ctaPrimary}</a>
-        <!-- <a href="https://apps.apple.com/app/id0000000000" rel="noreferrer" target="_blank">
+        <!-- <a href="https://apps.apple.com/app/id0000000000" rel="noreferrer noopener" target="_blank">
           <img src={common.iosDownloadLabel} alt="iOS Download" height="50px">
         </a> -->
       <!-- TODO: MODIFY HREF TO SURVEY -->
-        <a class="btn btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSebsi0xkxSvB204knqxMMSSQrnEafdy2UEjxE_zb9rxH6f8eQ/viewform?usp=header">{common.testFlightSignUpLabel}</a>
+        <a class="btn btn--primary" href="https://forms.gle/WEXfV53WcPCXREZH7" target="_blank" rel="noopener noreferrer">{common.testFlightSignUpLabel}</a>
         <a class="btn btn--ghost" href={localePath(locale, "about/contact-us")}>{copy.ctaSecondary}</a>
       </div>
       <div class="hero-badges">
