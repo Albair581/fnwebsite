@@ -419,6 +419,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Everything in Built-in",
           "Completely free to use with a Food Ninja account",
           "No access to Google Search with AI chat",
+          "Cannot attach any photos to AI chat messages",
           "Access to limited monthly chat usage",
           "Access to limited monthly voice log and capture usage",
           "Basic models in AI chat"
@@ -437,7 +438,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Able to request for search feature with AI chat",
           "20x monthly chat usage compared to Freemium",
           "40x monthly voice log and capture usage compared to Freemium",
-          "Same model as Freemium in AI chat but with search capability",
+          "Same model as Freemium in AI chat but with search capability & ability to attach a photo to a prompt",
         ],
         cta: "Configure Plan 2",
         setupHint:
@@ -454,6 +455,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Able to request for search feature with AI chat",
           "100x monthly chat usage compared to Freemium",
           "Unlimited voice log and capture usage",
+          "Ability to attach a photo to a prompt and get detailed replies in AI chat",
           "Access to advanced models in AI chat with search and reasoning capabilities",
         ],
         cta: "Configure Plan 3",
