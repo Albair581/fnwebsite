@@ -8,7 +8,8 @@ export type FeatureSlug =
   | "ai"
   | "donation"
   | "sync"
-  | "widgets";
+  | "widgets"
+  | "trees";
 export const featureSlugs: FeatureSlug[] = [
   "capture",
   "voice",
@@ -16,6 +17,7 @@ export const featureSlugs: FeatureSlug[] = [
   "donation",
   "sync",
   "widgets",
+  "trees",
 ];
 
 type NavCopy = {
@@ -76,6 +78,8 @@ type OverviewCopy = {
     donationSub: string;
     syncLabel: string;
     syncSub: string;
+    treeLabel: string;
+    treeSub: string;
   };
   kpis: KPI[];
   howTitle: string;
@@ -236,6 +240,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       "AI Recipe Planner",
       "Donation Safety Matching",
       "Widget & Calendar Sync",
+      "Tree Gamification",
     ],
     visualCards: {
       firstName: "🥛 Milk",
@@ -248,6 +253,8 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       donationSub: "safe matches found",
       syncLabel: "📅 Sync status",
       syncSub: "Google Calendar • Google Tasks • Apple Calendar • Apple Reminders",
+      treeLabel: "🌳 Plant Trees",
+      treeSub: "Real mangroves planted",
     },
     kpis: [
       { value: 4, suffix: "", label: "capture modes" },
@@ -315,7 +322,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       "用拍照或語音快速記錄食物，追蹤到期日，並在變質前獲得 AI 食譜、餐計畫與捐贈建議。",
     ctaPrimary: "查看功能",
     ctaSecondary: "聯絡我們",
-    quickBadges: ["拍照 + OCR", "語音記錄", "AI 食譜規劃", "捐贈安全配對", "小工具與行事曆同步"],
+    quickBadges: ["拍照 + OCR", "語音記錄", "AI 食譜規劃", "捐贈安全配對", "小工具與行事曆同步", "種樹遊戲化"],
     visualCards: {
       firstName: "🥛 牛奶",
       firstEta: "+1 天",
@@ -327,6 +334,8 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       donationSub: "已找到可行據點",
       syncLabel: "📅 同步狀態",
       syncSub: "Google 行事曆 • Google Tasks • Apple 行事曆 • Apple 提醒事項",
+      treeLabel: "🌳 種植樹木",
+      treeSub: "真實紅樹林已種植",
     },
     kpis: [
       { value: 4, suffix: "", label: "記錄模式" },
@@ -404,7 +413,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Access to basic record creation features",
           "Access to updated donation center database",
           "Access to widgets",
-          "Access to sync features"
+          "Access to sync features",
+          "No access to tree planting gamification features"
         ],
         cta: "Configure Plan 1",
         setupHint:
@@ -422,7 +432,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Cannot attach any photos to AI chat messages",
           "Access to limited monthly chat usage",
           "Access to limited monthly voice log and capture usage",
-          "Basic models in AI chat"
+          "Basic models in AI chat",
+          "Plant real trees in real life"
         ],
         cta: "Configure Plan 1",
         setupHint:
@@ -439,6 +450,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "50x monthly chat usage compared to Freemium",
           "200x monthly voice log and capture usage compared to Freemium",
           "Same model as Freemium in AI chat but with search capability & ability to attach a photo to a prompt",
+          "Plant real trees in real life"
         ],
         cta: "Configure Plan 2",
         setupHint:
@@ -457,6 +469,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Unlimited voice log and capture usage",
           "Ability to attach a photo to a prompt and get detailed replies in AI chat",
           "Access to advanced models in AI chat with search and reasoning capabilities",
+          "Plant real trees in real life"
         ],
         cta: "Configure Plan 3",
         setupHint:
@@ -484,7 +497,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "基本紀錄創建功能",
           "最新捐贈據點資料庫",
           "小工具功能",
-          "各種同步功能"
+          "各種同步功能",
+          "無法使用種樹機制"
         ],
         cta: "設定方案一",
         setupHint:
@@ -501,7 +515,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "不可在 AI 聊天中使用上網搜尋功能",
           "可使用有限的每月聊天次數",
           "可使用有限的每月語音紀錄次數",
-          "AI 聊天功能中使用基本 AI 模型"
+          "AI 聊天功能中使用基本 AI 模型",
+          "可以種植真實的紅樹林"
         ],
         cta: "設定方案一",
         setupHint:
@@ -517,7 +532,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案20倍的每月 AI 聊天次數",
           "相比免費方案40倍的每月語音、拍照紀錄次數",
-          "與免費方案相同的 AI 模型，但具備搜尋功能"
+          "與免費方案相同的 AI 模型，但具備搜尋功能",
+          "可以種植真實的紅樹林"
         ],
         cta: "設定方案二",
         setupHint:
@@ -534,7 +550,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案100倍的每月 AI 聊天次數", 
           "無限的語音、拍照紀錄次數", 
-          "最進階的 AI 聊天模型，具備搜尋功能"
+          "最進階的 AI 聊天模型，具備搜尋功能",
+          "可以種植真實的紅樹林"
         ],
         cta: "設定方案三",
         setupHint:
@@ -628,6 +645,18 @@ export const featuresHubCopy: Record<SiteLocale, FeaturesHubCopy> = {
           "Notification timing is configurable per item",
         ],
       },
+      {
+        slug: "trees",
+        icon: "🌳",
+        title: "Tree Gamification",
+        summary:
+          "Plant virtual and real trees by tracking your food habits. Small actions all count towards the 100% goal.",
+        bullets: [
+          "Earn progress by checking in and eating safely",
+          "Real mangrove trees planted via GoodAPI at 100%",
+          "History tracking of daily actions and planted trees",
+        ],
+      },
     ],
   },
   "zh-TW": {
@@ -694,6 +723,18 @@ export const featuresHubCopy: Record<SiteLocale, FeaturesHubCopy> = {
           "小工具快照顯示已拯救/浪費統計",
           "可透過 deep link 直接跳到記錄明細",
           "每項食材都可設定提醒時間",
+        ],
+      },
+      {
+        slug: "trees",
+        icon: "🌳",
+        title: "種樹遊戲化",
+        summary:
+          "透過記錄飲食習慣來種植虛擬與真實的樹木。小小的行動都有助於達成 100% 目標。",
+        bullets: [
+          "透過每日簽到與安全食用獲取進度",
+          "達到 100% 時透過 GoodAPI 種植真實紅樹林",
+          "追蹤每日行動紀錄與種樹歷史",
         ],
       },
     ],
@@ -931,6 +972,46 @@ export const featureDetailsCopy: Record<
       mediaAlt: "Widgets and notifications illustration",
       imagePath: "/images/WidgetNotification.png",
     },
+    trees: {
+      icon: "🌳",
+      title: "Tree Gamification",
+      summary:
+        "Every time you log food, eat it instead of wasting it, or simply check in daily, you earn progress towards planting real mangrove trees.",
+      valuePropsTitle: "Why it helps",
+      valueProps: [
+        "Incentivizes positive behavior to reduce food waste.",
+        "Contributes to real-world environmental impact via mangrove planting.",
+        "Helps build a daily habit of checking your inventory.",
+      ],
+      flowTitle: "Typical flow",
+      flow: [
+        {
+          title: "1) Perform actions",
+          description:
+            "Log food (+0.5%), eat saved food (+3%), or just check in (+1%).",
+        },
+        {
+          title: "2) Watch it grow",
+          description:
+            "The virtual tree progresses through stages: Seed, Sprout, Seedling, Sapling, to Mature Tree.",
+        },
+        {
+          title: "3) Plant a real tree",
+          description:
+            "When reaching 100%, progress resets and a real mangrove tree is planted on your behalf.",
+        },
+      ],
+      integrationsTitle: "Benefits of Mangroves",
+      integrations: [
+        "Coastal Protection against storms and erosion",
+        "Absorbs up to 4x more carbon than tropical rainforests",
+        "Provides essential nursery habitats for marine life",
+      ],
+      mediaTitle: "Feature Visual",
+      mediaCaption: "Track your impact with a beautiful circular progress bar and community planting history.",
+      mediaAlt: "Tree Gamification",
+      imagePath: "",
+    },
   },
   "zh-TW": {
     capture: {
@@ -1128,6 +1209,43 @@ export const featureDetailsCopy: Record<
       mediaCaption: "小工具與通知會在不開 App 時持續提示高風險到期品項。",
       mediaAlt: "小工具與提醒示意圖",
       imagePath: "/images/WidgetNotificationZh.png",
+    },
+    trees: {
+      icon: "🌳",
+      title: "種樹遊戲化",
+      summary:
+        "每次你記錄食物、吃掉食物而不是浪費，或是單純每日簽到，都能獲取進度，最終種植真實的紅樹林。",
+      valuePropsTitle: "為什麼這有幫助",
+      valueProps: [
+        "獎勵正向行為，有效減少食物浪費。",
+        "透過種植紅樹林對現實環境產生實質的正面影響。",
+        "幫助養成每日檢查庫存的好習慣。",
+      ],
+      flowTitle: "運作流程",
+      flow: [
+        {
+          title: "1) 執行行動",
+          description: "記錄食物 (+0.5%)、吃掉保存的食物 (+3%) 或每日簽到 (+1%)。",
+        },
+        {
+          title: "2) 看著它成長",
+          description: "虛擬樹木會經歷各個生長階段：種子、幼芽、幼苗、小樹、成熟樹木。",
+        },
+        {
+          title: "3) 種植一棵真正的樹",
+          description: "當進度達到 100% 時，進度重置，並會以你的名義種植一棵真實的紅樹林。",
+        },
+      ],
+      integrationsTitle: "紅樹林的益處",
+      integrations: [
+        "海岸保護，緩衝風暴並防止海岸侵蝕",
+        "碳封存能力高達熱帶雨林的 4 倍",
+        "為海洋生物提供重要的繁衍棲息地",
+      ],
+      mediaTitle: "功能視覺",
+      mediaCaption: "透過精美的環形進度條與社群種植歷史來追蹤你的影響力。",
+      mediaAlt: "種樹遊戲化",
+      imagePath: "",
     },
   },
 };
