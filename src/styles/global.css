@@ -877,7 +877,7 @@ body.lightbox-open {
 }
 
 .sdg-card__label {
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--muted);
   text-align: center;
