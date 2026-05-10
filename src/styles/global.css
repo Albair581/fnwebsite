@@ -856,7 +856,7 @@ body.lightbox-open {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.82);
   padding: 0.6rem 0.5rem 0.55rem;
-  width: clamp(120px, 22%, 150px);
+  width: clamp(150px, 34%, 180px);
   transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
   box-shadow: 0 2px 8px rgba(24, 45, 20, 0.06);
 }
