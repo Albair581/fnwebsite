@@ -17,6 +17,28 @@ export function getStaticPaths() {
 const locale = Astro.params.locale as SiteLocale;
 const common = commonCopy[locale];
 const copy = overviewCopy[locale];
+let data;
+try {
+  const response = await fetch("https://api.food-ninja.com/api/trees/count/");
+  data = await response.json();
+} catch (_error) {}
+const total_trees_planted = data?.total_planted_trees || 0;
+const total_trees_label = locale === "zh-TW" ? "已復育的樹木" : "trees planted around the world";
+
+const isZhTW = locale === "zh-TW";
+const imgPrefix = isZhTW ? "/zh-TW/C-WEB-Goal-" : "/en/E-WEB-Goal-";
+const sdgs = [
+  { num: 1,  label: isZhTW ? "終結貧窮"         : "No Poverty" },
+  { num: 2,  label: isZhTW ? "消除飢餓"         : "Zero Hunger" },
+  { num: 3,  label: isZhTW ? "健康與福祉"       : "Good Health and Well-being" },
+  { num: 8,  label: isZhTW ? "合適的工作及經濟成長" : "Decent Work and Economic Growth" },
+  { num: 11, label: isZhTW ? "永續城鄉"         : "Sustainable Cities" },
+  { num: 12, label: isZhTW ? "責任消費及生產"   : "Responsible Consumption" },
+  { num: 13, label: isZhTW ? "氣候行動"         : "Climate Action" },
+  { num: 14, label: isZhTW ? "保育海洋生態"     : "Life Below Water" },
+  { num: 15, label: isZhTW ? "保育陸域生態"     : "Life on Land" },
+  { num: 17, label: isZhTW ? "多元夥伴關係"     : "Partnerships for the Goals" },
+];
 ---
 
 <SiteLayout
@@ -93,6 +115,12 @@ const copy = overviewCopy[locale];
           </article>
         ))
       }
+      <article class="kpi-card">
+        <strong>
+          <span data-countup data-target={String(total_trees_planted)}>0</span>
+        </strong>
+        <p>{total_trees_label}</p>
+      </article>
     </div>
   </section>
 
@@ -108,6 +136,30 @@ const copy = overviewCopy[locale];
           </article>
         ))
       }
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <h2>{copy.sdgTitle}</h2>
+    <div class="sdg-grid">
+      {sdgs.map(({ num, label }) => {
+        const pad = String(num).padStart(2, "0");
+        const imgSrc = `${imgPrefix}${pad}.png`;
+        const href = `https://sdgs.un.org/goals/goal${num}`;
+        return (
+          <a
+            class="sdg-card"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={label}
+            aria-label={`SDG ${num}: ${label}`}
+          >
+            <img src={imgSrc} alt={`SDG ${num} – ${label}`} loading="lazy" decoding="async" />
+            <span class="sdg-card__label">{label}</span>
+          </a>
+        );
+      })}
     </div>
   </section>
 

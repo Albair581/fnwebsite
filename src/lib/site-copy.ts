@@ -85,6 +85,7 @@ type OverviewCopy = {
   howTitle: string;
   howIntro: string;
   steps: Array<{ title: string; description: string }>;
+  sdgTitle: string;
   galleryTitle: string;
   galleryIntro: string;
   gallery: Array<{
@@ -250,7 +251,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       aiLabel: "🤖 AI",
       aiSub: "2 recipes ready",
       donationLabel: "🎯 Donate",
-      donationSub: "safe matches found",
+      donationSub: "Safe matches found",
       syncLabel: "📅 Sync status",
       syncSub: "Google Calendar • Google Tasks • Apple Calendar • Apple Reminders",
       treeLabel: "🌳 Plant Trees",
@@ -281,7 +282,13 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
         description:
           "Chat generates recipes, meal plans, and donation-safe center matches from your records and context.",
       },
+      {
+        title: "See your impacts",
+        description:
+          "When you reduce enough food waste, we plant trees to bring eco-friendliness to another level.",
+      },
     ],
+    sdgTitle: "SDG Goals Food Ninja Achieves",
     galleryTitle: "Product Gallery",
     galleryIntro:
       "These visuals are now part of the production build. Replace them with your final renders when ready.",
@@ -361,7 +368,13 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
         description:
           "聊天功能可根據你的記錄生成食譜、餐計畫，並比對可捐贈據點與安全條件。",
       },
+      {
+        title: "看見成果",
+        description:
+          "當你減少足夠的食物浪費，我們就會種植樹木，除了減少食物浪費，還能為環境盡一份心力。",
+      },
     ],
+    sdgTitle: "Food Ninja 達成的永續發展目標",
     galleryTitle: "產品畫面",
     galleryIntro: "這些視覺已納入正式版網站，可隨時替換為你最終輸出的素材。",
     gallery: [
