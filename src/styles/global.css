@@ -884,3 +884,27 @@ body.lightbox-open {
   line-height: 1.25;
 }
 
+/* Embedded Mode (In-App) */
+.is-embedded .site-header,
+.is-embedded .site-footer,
+.is-embedded .page-hero,
+.is-embedded .bg-orb {
+  display: none !important;
+}
+
+.is-embedded .site-frame {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.is-embedded .site-main {
+  margin-top: 0;
+}
+
+.is-embedded .section-panel {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+}

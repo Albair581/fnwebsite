@@ -139,6 +139,11 @@ const copyrightText = "2026 © Albert Huang";
 
     <script is:inline>
       (() => {
+        // Detect embedded mode for in-app views
+        if (new URLSearchParams(window.location.search).has('embed')) {
+          document.documentElement.classList.add('is-embedded');
+        }
+
         const localeStorageKey = "food-ninja-site-locale";
         document.querySelectorAll("[data-locale-choice]").forEach((link) => {
           link.addEventListener("click", () => {
