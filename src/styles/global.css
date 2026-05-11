@@ -885,10 +885,17 @@ body.lightbox-open {
 }
 
 /* Embedded Mode (In-App) */
+.is-embedded,
+.is-embedded body,
+.is-embedded .site-frame {
+  background: transparent !important;
+}
+
 .is-embedded .site-header,
 .is-embedded .site-footer,
 .is-embedded .page-hero,
-.is-embedded .bg-orb {
+.is-embedded .bg-orb,
+.is-embedded .lightbox {
   display: none !important;
 }
 

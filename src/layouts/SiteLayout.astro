@@ -19,6 +19,7 @@ interface Props {
 }
 
 const { locale, title, description } = Astro.props;
+const isEmbedded = Astro.url.searchParams.has("embed");
 const copy = commonCopy[locale];
 const currentPath = Astro.url.pathname;
 const homePath = localePath(locale);
@@ -52,7 +53,7 @@ const copyrightText = "2026 © Albert Huang";
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} class={isEmbedded ? "is-embedded" : ""}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,11 +140,6 @@ const copyrightText = "2026 © Albert Huang";
 
     <script is:inline>
       (() => {
-        // Detect embedded mode for in-app views
-        if (new URLSearchParams(window.location.search).has('embed')) {
-          document.documentElement.classList.add('is-embedded');
-        }
-
         const localeStorageKey = "food-ninja-site-locale";
         document.querySelectorAll("[data-locale-choice]").forEach((link) => {
           link.addEventListener("click", () => {
