@@ -463,7 +463,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "50x monthly chat usage compared to Freemium",
           "200x monthly voice log and capture usage compared to Freemium",
           "Same model as Freemium in AI chat but with search capability & ability to attach a photo to a prompt",
-          "Plant real trees in real life"
+          "Plant real trees in real life in our trees tab through achievements",
+          "Plants 1 tree on purchase and 1 on each subscription renewal"
         ],
         cta: "Configure Plan 2",
         setupHint:
@@ -482,7 +483,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Unlimited voice log and capture usage",
           "Ability to attach a photo to a prompt and get detailed replies in AI chat",
           "Access to advanced models in AI chat with search and reasoning capabilities",
-          "Plant real trees in real life"
+          "Plant real trees in real life in our trees tab through achievements",
+          "Plants 2 trees on purchase and 1 on each subscription renewal"
         ],
         cta: "Configure Plan 3",
         setupHint:
