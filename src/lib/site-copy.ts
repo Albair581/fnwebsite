@@ -288,7 +288,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
           "When you reduce enough food waste, we plant trees to bring eco-friendliness to another level.",
       },
     ],
-    sdgTitle: "SDG Goals Food Ninja Achieves",
+    sdgTitle: "SDGs Food Ninja Achieves",
     galleryTitle: "Product Gallery",
     galleryIntro:
       "These visuals are now part of the production build. Replace them with your final renders when ready.",
