@@ -19,7 +19,6 @@ interface Props {
 }
 
 const { locale, title, description } = Astro.props;
-const isEmbedded = Astro.url.searchParams.has("embed");
 const copy = commonCopy[locale];
 const currentPath = Astro.url.pathname;
 const homePath = localePath(locale);
@@ -53,8 +52,13 @@ const copyrightText = "2026 © Albert Huang";
 ---
 
 <!doctype html>
-<html lang={locale} class={isEmbedded ? "is-embedded" : ""}>
+<html lang={locale}>
   <head>
+    <script is:inline>
+      if (new URLSearchParams(window.location.search).has('embed')) {
+        document.documentElement.classList.add('is-embedded');
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
