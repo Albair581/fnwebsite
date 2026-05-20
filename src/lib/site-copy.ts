@@ -1013,7 +1013,7 @@ export const featureDetailsCopy: Record<
         {
           title: "3) Plant a real tree",
           description:
-            "When reaching 100%, progress resets and a real mangrove tree is planted on your behalf.",
+            "When reaching 100%, progress resets and a real mangrove tree is planted automatically.",
         },
       ],
       integrationsTitle: "Benefits of Mangroves",
@@ -1023,7 +1023,7 @@ export const featureDetailsCopy: Record<
         "Provides essential nursery habitats for marine life",
       ],
       mediaTitle: "Feature Visual",
-      mediaCaption: "Track your impact with a beautiful circular progress bar and community planting history.",
+      mediaCaption: "Not available yet.",
       mediaAlt: "Tree Gamification",
       imagePath: "",
     },
@@ -1248,7 +1248,7 @@ export const featureDetailsCopy: Record<
         },
         {
           title: "3) 種植一棵真正的樹",
-          description: "當進度達到 100% 時，進度重置，並會以你的名義種植一棵真實的紅樹林。",
+          description: "當進度達到 100% 時，進度重置，並會自動種植一棵真實的紅樹林。",
         },
       ],
       integrationsTitle: "紅樹林的益處",
