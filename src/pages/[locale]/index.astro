@@ -35,6 +35,7 @@ const total_records_label = locale === "zh-TW" ? "已幫忙追蹤的紀錄" : "r
 
 const total_code_label_h = locale === "zh-TW" ? "被超過" : "Powered by more than";
 const total_code_label_f = locale === "zh-TW" ? "行代碼驅動" : "lines of code";
+const total_code_count = 27000;
 
 const isZhTW = locale === "zh-TW";
 const imgPrefix = isZhTW ? "/zh-TW/C-WEB-Goal-" : "/en/E-WEB-Goal-";
@@ -141,7 +142,7 @@ const sdgs = [
       <article class="kpi-card">
         <p>{total_code_label_h}</p>
         <strong>
-          <span data-countup>27000</span>
+          <span data-countup data-target={String(total_code_count)}>0</span>
         </strong>
         <p>{total_code_label_f}</p>
       </article>
