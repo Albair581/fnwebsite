@@ -22,8 +22,20 @@ try {
   const response = await fetch("https://api.food-ninja.com/api/trees/count/");
   data = await response.json();
 } catch (_error) {}
+let recordsData;
+try {
+  const response = await fetch("https://api.food-ninja.com/api/analytics/records/count/");
+  recordsData = await response.json();
+} catch (_error) {}
 const total_trees_planted = data?.total_planted_trees || 0;
 const total_trees_label = locale === "zh-TW" ? "已復育的樹木" : "trees planted around the world";
+
+const total_records_created = recordsData?.total_records || 0;
+const total_records_label = locale === "zh-TW" ? "已幫忙追蹤的紀錄" : "records we've helped tracking around the world";
+
+const total_code_label_h = locale === "zh-TW" ? "被" : "Powered by";
+const total_code_label_f = locale === "zh-TW" ? "行代碼驅動" : "lines of code";
+const total_code_used = 27000+;
 
 const isZhTW = locale === "zh-TW";
 const imgPrefix = isZhTW ? "/zh-TW/C-WEB-Goal-" : "/en/E-WEB-Goal-";
@@ -120,6 +132,19 @@ const sdgs = [
           <span data-countup data-target={String(total_trees_planted)}>0</span>
         </strong>
         <p>{total_trees_label}</p>
+      </article>
+      <article class="kpi-card">
+        <strong>
+          <span data-countup data-target={String(total_records_created)}>0</span>
+        </strong>
+        <p>{total_records_label}</p>
+      </article>
+      <article class="kpi-card">
+        <p>{total_code_label_h}</p>
+        <strong>
+          <span data-countup data-target={String(total_code_used)}>0</span>
+        </strong>
+        <p>{total_code_label_f}</p>
       </article>
     </div>
   </section>
