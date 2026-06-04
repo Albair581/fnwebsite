@@ -47,7 +47,9 @@ const isActive = (href: string): boolean => {
 };
 const ppText = locale == "zh-TW" ? "隱私政策" : "Privacy Policy";
 const tosText = locale == "zh-TW" ? "服務條款" : "Terms of Service";
-const docText = locale == "zh-TW" ? "技術文件" : "Technical Documentation";
+const monthlyText = locale == "zh-TW" ? "月刊" : "Monthly Newsletter";
+const statusPage = locale == "zh-TW" ? "服務狀態" : "Service Statuses";
+const statusPageURL = locale == "zh-TW" ? "status.food-ninja.com/zh" : "status.food-ninja.com";
 const copyrightText = "2026 © Albert Huang";
 ---
 
@@ -125,7 +127,9 @@ const copyrightText = "2026 © Albert Huang";
           <span aria-hidden="true">·</span>
           <a href={localePath(locale, "about/tos")}>{tosText}</a>
           <span aria-hidden="true">·</span>
-          <a href="/legal/FoodNinja_Technical_Documentation.pdf">{docText}</a>
+          <a href="monthly.food-ninja.com">{monthlyText}</a>
+          <span aria-hidden="true">·</span>
+          <a href={statusPageURL}>{statusPage}</a>
           <span aria-hidden="true">·</span>
           <span>{copyrightText}</span>
         </p>
