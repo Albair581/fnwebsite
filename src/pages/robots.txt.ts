@@ -5,6 +5,7 @@ export const GET: APIRoute = ({ site }) => {
   const body = [
     "User-agent: *",
     "Allow: /",
+    "Diwallow: /misc-unknown",
     "",
     `Sitemap: ${absoluteUrl("/sitemap.xml", site)}`,
   ].join("\n");
