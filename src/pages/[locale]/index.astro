@@ -28,10 +28,10 @@ try {
   recordsData = await response.json();
 } catch (_error) {}
 const total_trees_planted = data?.total_planted_trees || 0;
-const total_trees_label = locale === "zh-TW" ? "已復育的樹木" : "trees planted around the world";
+const total_trees_label = locale === "zh-TW" ? "已復育的樹木" : "trees planted in Kenya";
 
 const total_records_created = recordsData?.total_records || 0;
-const total_records_label = locale === "zh-TW" ? "已幫忙追蹤的紀錄" : "records we've helped tracking";
+const total_records_label = locale === "zh-TW" ? "已幫忙追蹤的紀錄" : "records we've tracked";
 
 const total_code_label_h = locale === "zh-TW" ? "被超過" : "Powered by more than";
 const total_code_label_f = locale === "zh-TW" ? "行代碼驅動" : "lines of code";
