@@ -353,6 +353,26 @@ a {
   font-size: 0.9rem;
 }
 
+.kpi-card#treekpi {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.kpi-card#treekpi:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.kpi-card#treekpi:active {
+  transform: translateY(-2px) scale(0.95);
+}
+
+.kpi-link {
+  display: block;
+  /* padding: 24px; */
+  text-decoration: none;
+  color: inherit;
+}
+
 .section-panel {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.75);

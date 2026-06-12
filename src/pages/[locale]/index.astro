@@ -127,11 +127,13 @@ const sdgs = [
           </article>
         ))
       }
-      <article class="kpi-card">
-        <strong>
-          <span data-countup data-target={String(total_trees_planted)}>0</span>
-        </strong>
-        <p>{total_trees_label}</p>
+      <article class="kpi-card" id="treekpi">
+        <a href="https://app.thegoodapi.com/fe/share/w6gi3bc7nb" class="kpi-link">
+          <strong>
+            <span data-countup data-target={String(total_trees_planted)}>0</span>
+          </strong>
+          <p>{total_trees_label}</p>
+        </a>
       </article>
       <article class="kpi-card">
         <strong>
@@ -190,8 +192,6 @@ const sdgs = [
 
   <section class="section-panel">
     <h2>{copy.galleryTitle}</h2>
-    <!-- <p class="section-intro">{copy.galleryIntro}</p> -->
-    <!-- TODO: MAKE IMAGES EXPANDABLE -->
     <div class="gallery-grid">
       {
         copy.gallery.map((item) => (
