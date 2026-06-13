@@ -446,7 +446,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Access to limited monthly chat usage",
           "Access to limited monthly voice log and capture usage",
           "Basic models in AI chat",
-          "Plant real trees in real life"
+          "Plant real trees in real life",
+          "Access to limited monthly waste insights"
         ],
         cta: "Configure Plan 1",
         setupHint:
@@ -464,7 +465,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "200x monthly voice log and capture usage compared to Freemium",
           "Same model as Freemium in AI chat but with search capability & ability to attach a photo to a prompt",
           "Plant real trees in real life in our trees tab through achievements",
-          "Plants 1 tree on purchase and 1 on each subscription renewal"
+          "Plants 1 tree on purchase and 1 on each subscription renewal",
+          "7x monthly waste insights compared to Freemium"
         ],
         cta: "Configure Plan 2",
         setupHint:
@@ -484,7 +486,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Ability to attach a photo to a prompt and get detailed replies in AI chat",
           "Access to advanced models in AI chat with search and reasoning capabilities",
           "Plant real trees in real life in our trees tab through achievements",
-          "Plants 2 trees on purchase and 1 on each subscription renewal"
+          "Plants 2 trees on purchase and 1 on each subscription renewal",
+          "49x monthly waste insights compared to Freemium"
         ],
         cta: "Configure Plan 3",
         setupHint:
@@ -531,7 +534,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "可使用有限的每月聊天次數",
           "可使用有限的每月語音紀錄次數",
           "AI 聊天功能中使用基本 AI 模型",
-          "可以種植真實的紅樹林"
+          "可以種植真實的紅樹林",
+          "可使用有限的每月食物浪費分析功能"
         ],
         cta: "設定方案一",
         setupHint:
@@ -548,7 +552,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "相比免費方案20倍的每月 AI 聊天次數",
           "相比免費方案40倍的每月語音、拍照紀錄次數",
           "與免費方案相同的 AI 模型，但具備搜尋功能",
-          "可以種植真實的紅樹林"
+          "可以種植真實的紅樹林",
+          "相比免費方案7倍的每月食物浪費分析功能"
         ],
         cta: "設定方案二",
         setupHint:
@@ -566,7 +571,8 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "相比免費方案100倍的每月 AI 聊天次數", 
           "無限的語音、拍照紀錄次數", 
           "最進階的 AI 聊天模型，具備搜尋功能",
-          "可以種植真實的紅樹林"
+          "可以種植真實的紅樹林",
+          "相比免費方案49倍的每月食物浪費分析功能"
         ],
         cta: "設定方案三",
         setupHint:
