@@ -192,8 +192,8 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
       contact: "Contact",
     },
     footerText:
-      "Food Ninja combines camera capture, voice logging, AI planning, and donation safety checks to reduce waste.",
-    footerNote: "If your food items had a COO, this would be it.",
+      "Food Ninja combines camera capture, voice logging, AI planning, item tracking, and medication reminders to reduce waste.",
+    footerNote: "If your food & items had a COO, this would be it.",
   },
   "zh-TW": {
     appName: "Food Ninja",
@@ -219,8 +219,8 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
       pp: "隱私",
       contact: "聯絡",
     },
-    footerText: "Food Ninja 結合拍照辨識、語音記錄、AI 規劃與捐贈安全判斷，幫你有效減少浪費。",
-    footerNote: "食品也值得一位專業管理師。",
+    footerText: "Food Ninja 結合拍照辨識、語音記錄、AI 規劃與、紀錄追蹤與吃藥提醒，幫你有效減少浪費。",
+    footerNote: "食物、物品也值得一位專業管理師。",
   },
 };
 
@@ -232,7 +232,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
     eyebrow: "Built from your iOS app + server capabilities",
     title: "Your food items just hired a ninja.",
     subtitle:
-      "Snap or speak your food items, track expiry dates, and get AI-powered recipe, meal-plan, and donation guidance before food goes bad.",
+      "Snap or speak your food items, track expiry dates, and get AI-powered recipe, meal-plan, and more before food goes bad.",
     ctaPrimary: "Explore Features",
     ctaSecondary: "Contact Us",
     quickBadges: [
