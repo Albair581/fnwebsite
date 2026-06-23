@@ -444,7 +444,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "No access to Google Search with AI chat",
           "Cannot attach any photos to AI chat messages",
           "Access to limited monthly chat usage",
-          "Access to limited monthly voice log and capture usage",
+          "Access to limited monthly voice log, food, and medication camera capture usage",
           "Basic models in AI chat",
           "Plant real trees in real life",
           "Access to limited monthly waste insights"
@@ -462,7 +462,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Everything in Built-in",
           "Able to request for search feature with AI chat",
           "50x monthly chat usage compared to Freemium",
-          "200x monthly voice log and capture usage compared to Freemium",
+          "200x monthly voice log, food, and medication camera capture usage compared to Freemium",
           "Same model as Freemium in AI chat but with search capability & ability to attach a photo to a prompt",
           "Plant real trees in real life in our trees tab through achievements",
           "Plants 1 tree on purchase and 1 on each subscription renewal",
@@ -482,7 +482,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "Everything in Built-in",
           "Able to request for search feature with AI chat",
           "250x monthly chat usage compared to Freemium",
-          "Unlimited voice log and capture usage",
+          "Unlimited voice log, food, and medication camera capture usage",
           "Ability to attach a photo to a prompt and get detailed replies in AI chat",
           "Access to advanced models in AI chat with search and reasoning capabilities",
           "Plant real trees in real life in our trees tab through achievements",
@@ -532,7 +532,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "只要有 Food Ninja 帳號就都可免費使用",
           "不可在 AI 聊天中使用上網搜尋功能",
           "可使用有限的每月聊天次數",
-          "可使用有限的每月語音紀錄次數",
+          "可使用有限的每月語音、食物與藥品拍照紀錄次數",
           "AI 聊天功能中使用基本 AI 模型",
           "可以種植真實的紅樹林",
           "可使用有限的每月食物浪費分析功能"
@@ -550,7 +550,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "自帶方案的所有功能",
           "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案20倍的每月 AI 聊天次數",
-          "相比免費方案40倍的每月語音、拍照紀錄次數",
+          "相比免費方案40倍的每月語音、食物與藥品拍照紀錄次數",
           "與免費方案相同的 AI 模型，但具備搜尋功能",
           "可以種植真實的紅樹林",
           "相比免費方案7倍的每月食物浪費分析功能"
@@ -569,7 +569,7 @@ export const pricingCopy: Record<SiteLocale, PricingCopy> = {
           "自帶方案的所有功能",
           "可在 AI 聊天中使用上網搜尋功能",
           "相比免費方案100倍的每月 AI 聊天次數", 
-          "無限的語音、拍照紀錄次數", 
+          "無限的語音、食物與藥品拍照紀錄次數", 
           "最進階的 AI 聊天模型，具備搜尋功能",
           "可以種植真實的紅樹林",
           "相比免費方案49倍的每月食物浪費分析功能"
@@ -771,10 +771,10 @@ export const featureDetailsCopy: Record<
       icon: "📸",
       title: "Smart Capture",
       summary:
-        "Food Ninja combines image classification, OCR text, optional detected expiry date, and supplemental transcript into clean records.",
+        "Food Ninja combines image classification, OCR text, optional detected expiry date, and supplemental transcript into clean records and medications.",
       valuePropsTitle: "Why it helps",
       valueProps: [
-        "Reduces manual typing when logging groceries.",
+        "Reduces manual typing when logging groceries or medications.",
         "Uses OCR date hints and normalizes flexible date formats.",
         "Keeps uncertain fields visible by marking incomplete items.",
       ],
@@ -783,21 +783,21 @@ export const featureDetailsCopy: Record<
         {
           title: "1) Scan packaging",
           description:
-            "Camera capture provides classification hints and OCR text to the backend capture endpoint.",
+            "Camera capture provides OCR text and image context to the backend capture endpoint.",
         },
         {
           title: "2) Add voice context",
           description:
-            "Optional voice transcript fills missing details like location or notes.",
+            "Optional voice transcript fills missing details for groceries like location or notes.",
         },
         {
           title: "3) Confirm records",
           description:
-            "Generated items are sanitized, tagged, and inserted into your expiry list.",
+            "Generated items are sanitized, tagged, and inserted into your expiry list or medications list.",
         },
       ],
       integrationsTitle: "Linked systems",
-      integrations: ["Records tab", "Voice log credits", "Widget snapshot sync"],
+      integrations: ["Records tab", "Medications tab", "Voice log credits", "Widget snapshot sync"],
       mediaTitle: "Feature Visual",
       mediaCaption:
         "Camera view plus OCR extraction turning a packaging label into structured record fields.",
@@ -1039,10 +1039,10 @@ export const featureDetailsCopy: Record<
       icon: "📸",
       title: "智慧記錄",
       summary:
-        "Food Ninja 把影像分類、OCR、偵測到期日與補充語音整合成乾淨可用的食物紀錄。",
+        "Food Ninja 把影像分類、OCR、偵測到期日與補充語音整合成乾淨可用的食物或藥品紀錄。",
       valuePropsTitle: "核心價值",
       valueProps: [
-        "大幅減少手動輸入的時間。",
+        "大幅減少手動輸入食物或藥品的時間。",
         "使用 OCR 日期線索並做彈性日期正規化。",
         "不確定欄位會標記為未完成，方便後續補齊。",
       ],
@@ -1050,19 +1050,19 @@ export const featureDetailsCopy: Record<
       flow: [
         {
           title: "1）掃描包裝",
-          description: "相機拍攝後，會將分類提示與 OCR 文字送往後端解析。",
+          description: "相機拍攝後，會將影像與 OCR 文字送往後端解析。",
         },
         {
           title: "2）補充語音",
-          description: "可選擇補充語音，填入位置、備註等缺漏資訊。",
+          description: "食物紀錄可選擇補充語音，填入位置、備註等缺漏資訊。",
         },
         {
           title: "3）確認記錄",
-          description: "生成結果會清理格式、套用標籤，並加入到期清單。",
+          description: "生成結果會清理格式、套用標籤，並加入食物或藥品清單。",
         },
       ],
       integrationsTitle: "關聯系統",
-      integrations: ["Records 清單", "語音點數機制", "小工具快照同步"],
+      integrations: ["Records 清單", "Medications 清單", "語音點數機制", "小工具快照同步"],
       mediaTitle: "功能視覺",
       mediaCaption: "相機與 OCR 擷取流程，把包裝資訊整理成結構化欄位。",
       mediaAlt: "智慧拍照記錄流程示意圖",
