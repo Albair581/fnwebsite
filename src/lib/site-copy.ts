@@ -169,7 +169,7 @@ type GuidePageCopy = {
 export const commonCopy: Record<SiteLocale, CommonCopy> = {
   en: {
     appName: "Food Ninja",
-    tagline: "Track. Donate. Solve.",
+    tagline: "Track. Remember. Solve. Plant.",
     languageLabel: "EN",
     switchLanguageLabel: "Switch language",
     featureDetailEyebrow: "Feature Detail",
@@ -197,7 +197,7 @@ export const commonCopy: Record<SiteLocale, CommonCopy> = {
   },
   "zh-TW": {
     appName: "Food Ninja",
-    tagline: "隨手記，隨心捐，隨口問。",
+    tagline: "隨手記，隨口問，即種樹。",
     languageLabel: "繁中",
     switchLanguageLabel: "切換語言",
     featureDetailEyebrow: "功能細節",
