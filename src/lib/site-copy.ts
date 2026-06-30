@@ -6,7 +6,6 @@ export type FeatureSlug =
   | "capture"
   | "voice"
   | "ai"
-  | "donation"
   | "sync"
   | "widgets"
   | "trees";
@@ -14,7 +13,6 @@ export const featureSlugs: FeatureSlug[] = [
   "capture",
   "voice",
   "ai",
-  "donation",
   "sync",
   "widgets",
   "trees",
@@ -74,8 +72,6 @@ type OverviewCopy = {
     secondEta: string;
     aiLabel: string;
     aiSub: string;
-    donationLabel: string;
-    donationSub: string;
     syncLabel: string;
     syncSub: string;
     treeLabel: string;
@@ -239,7 +235,6 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       "Camera + OCR",
       "Voice Logging",
       "AI Recipe Planner",
-      "Donation Safety Matching",
       "Widget & Calendar Sync",
       "Tree Gamification",
     ],
@@ -250,8 +245,6 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       secondEta: "+2 days",
       aiLabel: "🤖 AI",
       aiSub: "2 recipes ready",
-      donationLabel: "🎯 Donate",
-      donationSub: "Safe matches found",
       syncLabel: "📅 Sync status",
       syncSub: "Google Calendar • Google Tasks • Apple Calendar • Apple Reminders",
       treeLabel: "🌳 Plant Trees",
@@ -300,28 +293,22 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       //   alt: "Food Ninja mascot next to a smart fridge dashboard",
       // },
       {
-        imagePath: "/images/Records En Pad.png",
+        imagePath: "/images/En-Records.png",
         title: "Records View",
         description: "Expiration-first list with urgency-aware organization.",
         alt: "Records screen showing food items and expiration dates",
       },
       {
-        imagePath: "/images/Medications En Pad.png",
+        imagePath: "/images/En-Medications.png",
         title: "Medications View",
         description: "Track your medications securely with the same expiration-first urgency.",
         alt: "Medications screen showing items and expiration dates",
       },
       {
-        imagePath: "/images/Chat En Pad.png",
+        imagePath: "/images/En-Chat.png",
         title: "AI Assistant",
         description: "Recipes and meal plans generated from your real inventory.",
         alt: "AI chat screen with recipe and meal plan cards",
-      },
-      {
-        imagePath: "/images/Trees En Pad.png",
-        title: "Donation Center Finder",
-        description: "Map and list views with safety-based center matching.",
-        alt: "Donation feature map with nearby accepted centers",
       },
     ],
   },
@@ -335,7 +322,7 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       "用拍照或語音快速記錄食物，追蹤到期日，並在變質前獲得 AI 食譜、餐計畫與捐贈建議。",
     ctaPrimary: "查看功能",
     ctaSecondary: "聯絡我們",
-    quickBadges: ["拍照 + OCR", "語音記錄", "AI 食譜規劃", "捐贈安全配對", "小工具與行事曆同步", "種樹遊戲化"],
+    quickBadges: ["拍照 + OCR", "語音記錄", "AI 食譜規劃", "小工具與行事曆同步", "種樹遊戲化"],
     visualCards: {
       firstName: "🥛 牛奶",
       firstEta: "+1 天",
@@ -343,8 +330,6 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       secondEta: "+2 天",
       aiLabel: "🤖 AI",
       aiSub: "已準備 2 份食譜",
-      donationLabel: "🎯 捐贈",
-      donationSub: "已找到可行據點",
       syncLabel: "📅 同步狀態",
       syncSub: "Google 行事曆 • Google Tasks • Apple 行事曆 • Apple 提醒事項",
       treeLabel: "🌳 種植樹木",
@@ -391,28 +376,22 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       //   alt: "Food Ninja 吉祥物與智慧冰箱介面",
       // },
       {
-        imagePath: "/images/Records Zh Pad.png",
+        imagePath: "/images/Zh-Records.png",
         title: "記錄頁",
         description: "依到期優先排序的食材清單。",
         alt: "食材記錄頁顯示到期日期與急迫度",
       },
       {
-        imagePath: "/images/Medications Zh pad.png",
+        imagePath: "/images/Zh-Medications.png",
         title: "藥品記錄",
         description: "使用相同的到期優先邏輯，安全追蹤你的藥品。",
         alt: "藥品記錄畫面顯示項目與到期日",
       },
       {
-        imagePath: "/images/Chat Zh Pad.png",
+        imagePath: "/images/Zh-Chat.png",
         title: "AI 對話頁",
         description: "根據食材清單產生食譜與餐計畫。",
         alt: "AI 對話頁顯示食譜與餐計畫卡片",
-      },
-      {
-        imagePath: "/images/Trees Zh Pad.png",
-        title: "捐贈資料庫",
-        description: "地圖與清單提供捐贈據點資料。",
-        alt: "捐贈地圖顯示可捐贈據點",
       },
     ],
   },
@@ -642,18 +621,7 @@ export const featuresHubCopy: Record<SiteLocale, FeaturesHubCopy> = {
           "Returns structured recipe/plan payloads",
         ],
       },
-      {
-        slug: "donation",
-        icon: "🎯",
-        title: "Donation Safety Match",
-        summary:
-          "Compares your item conditions with known center acceptance rules and highlights viable options.",
-        bullets: [
-          "Checks item suitability before recommending centers",
-          "Includes distance and center details in responses",
-          "Backed by periodic dataset refresh",
-        ],
-      },
+
       {
         slug: "sync",
         icon: "🔄",
@@ -729,13 +697,7 @@ export const featuresHubCopy: Record<SiteLocale, FeaturesHubCopy> = {
           "回傳可直接渲染的結構化內容",
         ],
       },
-      {
-        slug: "donation",
-        icon: "🎯",
-        title: "捐贈安全配對",
-        summary: "比對你的食材條件與據點規範，優先顯示可行的捐贈選項。",
-        bullets: ["先檢查是否符合捐贈安全條件", "提供距離與據點資訊", "資料來源具週期性更新機制"],
-      },
+
       {
         slug: "sync",
         icon: "🔄",
@@ -888,44 +850,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "AI chat can generate both recipe cards and multi-day meal plans based on your request.",
       mediaAlt: "AI recipe and meal plan illustration",
-      imagePath: "/images/Recipes En Pad.png",
-    },
-    donation: {
-      icon: "🎯",
-      title: "Donation Safety Match",
-      summary:
-        "Food Ninja cross-checks your food records against donation center constraints before recommending where to donate.",
-      valuePropsTitle: "Why it helps",
-      valueProps: [
-        "Avoids suggesting centers that cannot accept your items.",
-        "Considers expiration timing in donation suitability decisions.",
-        "Surfaces map/list context for practical drop-off planning.",
-      ],
-      flowTitle: "Typical flow",
-      flow: [
-        {
-          title: "1) Load center database",
-          description:
-            "The app refreshes center data on schedule and keeps local cache for fast browsing.",
-        },
-        {
-          title: "2) Ask for donation check",
-          description:
-            "Donation task mode receives your records plus center details.",
-        },
-        {
-          title: "3) Return safe matches",
-          description:
-            "AI response includes matched centers or explicitly returns no valid options.",
-        },
-      ],
-      integrationsTitle: "Linked systems",
-      integrations: ["Donate tab map/list", "Center JSON refresh", "Safety-first chat mode"],
-      mediaTitle: "Feature Visual",
-      mediaCaption:
-        "Donation map and center card showing accepted items, open hours, and safety fit.",
-      mediaAlt: "Donation safety matching illustration",
-      imagePath: "/images/Trees En Pad.png",
+      imagePath: "/images/En-Recipe.png",
     },
     sync: {
       icon: "🔄",
@@ -966,7 +891,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "One record syncing across Google and Apple services for reminders and task visibility.",
       mediaAlt: "Sync integrations illustration",
-      imagePath: "/images/Sync En Pad.png",
+      imagePath: "/images/En-Sync.png",
     },
     widgets: {
       icon: "📱",
@@ -1003,7 +928,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "Home and lock screen widget cards emphasizing urgent expirations with one-tap deep links.",
       mediaAlt: "Widgets and notifications illustration",
-      imagePath: "/images/Widgets En Pad.png",
+      imagePath: "/images/En-Widgets.png",
     },
     trees: {
       icon: "🌳",
@@ -1043,7 +968,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "Feature Visual",
       mediaCaption: "Not available yet.",
       mediaAlt: "Tree Gamification",
-      imagePath: "",
+      imagePath: "/images/En-Trees.png",
     },
   },
   "zh-TW": {
@@ -1143,39 +1068,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "AI 對話可同時輸出食譜卡片與多日餐計畫。",
       mediaAlt: "AI 食譜與餐計畫示意圖",
-      imagePath: "/images/Recipe Zh Pad.png",
-    },
-    donation: {
-      icon: "🎯",
-      title: "捐贈安全配對",
-      summary: "Food Ninja 會先比對食材條件與據點規範，再推薦可行的捐贈地點。",
-      valuePropsTitle: "核心價值",
-      valueProps: [
-        "避免推薦不接受該品項的據點。",
-        "把到期時間納入捐贈可行性判斷。",
-        "結合地圖與清單資訊，實際安排更容易。",
-      ],
-      flowTitle: "典型流程",
-      flow: [
-        {
-          title: "1）更新據點資料",
-          description: "系統週期更新據點資料並保留本地快取，讀取快速。",
-        },
-        {
-          title: "2）啟動捐贈安全查詢",
-          description: "捐贈模式會收到食材記錄與據點資訊進行比對。",
-        },
-        {
-          title: "3）回傳可捐贈結果",
-          description: "若符合條件會列出據點；若不符合會明確說明無可行選項。",
-        },
-      ],
-      integrationsTitle: "關聯系統",
-      integrations: ["Donate 地圖/清單", "據點 JSON 更新機制", "安全優先聊天模式"],
-      mediaTitle: "功能視覺",
-      mediaCaption: "捐贈地圖與據點資訊卡同時顯示可收受條件與安全判斷。",
-      mediaAlt: "捐贈安全配對示意圖",
-      imagePath: "/images/Trees Zh Pad.png",
+      imagePath: "/images/Zh-Recipe.png",
     },
     sync: {
       icon: "🔄",
@@ -1208,7 +1101,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "同一筆食材記錄可同步到 Google 與 Apple 生態系。",
       mediaAlt: "同步整合示意圖",
-      imagePath: "/images/Sync Zh Pad.png",
+      imagePath: "/images/Zh-Sync.png",
     },
     widgets: {
       icon: "📱",
@@ -1241,7 +1134,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "小工具與通知會在不開 App 時持續提示高風險到期品項。",
       mediaAlt: "小工具與提醒示意圖",
-      imagePath: "/images/Widgets Zh Pad.png",
+      imagePath: "/images/Zh-Widgets.png",
     },
     trees: {
       icon: "🌳",
@@ -1278,7 +1171,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "透過精美的環形進度條與社群種植歷史來追蹤你的影響力。",
       mediaAlt: "種樹遊戲化",
-      imagePath: "",
+      imagePath: "/images/Zh-Trees.png",
     },
   },
 };
