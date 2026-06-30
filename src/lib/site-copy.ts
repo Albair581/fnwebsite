@@ -300,19 +300,25 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       //   alt: "Food Ninja mascot next to a smart fridge dashboard",
       // },
       {
-        imagePath: "/images/RecordsView.png",
+        imagePath: "/images/Records En Pad.png",
         title: "Records View",
         description: "Expiration-first list with urgency-aware organization.",
         alt: "Records screen showing food items and expiration dates",
       },
       {
-        imagePath: "/images/AIAssistant.png",
+        imagePath: "/images/Medications En Pad.png",
+        title: "Medications View",
+        description: "Track your medications securely with the same expiration-first urgency.",
+        alt: "Medications screen showing items and expiration dates",
+      },
+      {
+        imagePath: "/images/Chat En Pad.png",
         title: "AI Assistant",
         description: "Recipes and meal plans generated from your real inventory.",
         alt: "AI chat screen with recipe and meal plan cards",
       },
       {
-        imagePath: "/images/DonationDatabase.png",
+        imagePath: "/images/Trees En Pad.png",
         title: "Donation Center Finder",
         description: "Map and list views with safety-based center matching.",
         alt: "Donation feature map with nearby accepted centers",
@@ -385,19 +391,25 @@ export const overviewCopy: Record<SiteLocale, OverviewCopy> = {
       //   alt: "Food Ninja 吉祥物與智慧冰箱介面",
       // },
       {
-        imagePath: "/images/RecordsViewZh.png",
+        imagePath: "/images/Records Zh Pad.png",
         title: "記錄頁",
         description: "依到期優先排序的食材清單。",
         alt: "食材記錄頁顯示到期日期與急迫度",
       },
       {
-        imagePath: "/images/AIAssistantZh.png",
+        imagePath: "/images/Medications Zh pad.png",
+        title: "藥品記錄",
+        description: "使用相同的到期優先邏輯，安全追蹤你的藥品。",
+        alt: "藥品記錄畫面顯示項目與到期日",
+      },
+      {
+        imagePath: "/images/Chat Zh Pad.png",
         title: "AI 對話頁",
         description: "根據食材清單產生食譜與餐計畫。",
         alt: "AI 對話頁顯示食譜與餐計畫卡片",
       },
       {
-        imagePath: "/images/DonationDatabaseZh.png",
+        imagePath: "/images/Trees Zh Pad.png",
         title: "捐贈資料庫",
         description: "地圖與清單提供捐贈據點資料。",
         alt: "捐贈地圖顯示可捐贈據點",
@@ -802,7 +814,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "Camera view plus OCR extraction turning a packaging label into structured record fields.",
       mediaAlt: "Smart capture camera workflow illustration",
-      imagePath: "/images/Camera.png",
+      imagePath: "",
     },
     voice: {
       icon: "🎙️",
@@ -876,7 +888,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "AI chat can generate both recipe cards and multi-day meal plans based on your request.",
       mediaAlt: "AI recipe and meal plan illustration",
-      imagePath: "/images/AIChef&Planner.png",
+      imagePath: "/images/Recipes En Pad.png",
     },
     donation: {
       icon: "🎯",
@@ -913,7 +925,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "Donation map and center card showing accepted items, open hours, and safety fit.",
       mediaAlt: "Donation safety matching illustration",
-      imagePath: "/images/DonationCenterFinder.png",
+      imagePath: "/images/Trees En Pad.png",
     },
     sync: {
       icon: "🔄",
@@ -954,7 +966,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "One record syncing across Google and Apple services for reminders and task visibility.",
       mediaAlt: "Sync integrations illustration",
-      imagePath: "/images/Sync.png",
+      imagePath: "/images/Sync En Pad.png",
     },
     widgets: {
       icon: "📱",
@@ -991,7 +1003,7 @@ export const featureDetailsCopy: Record<
       mediaCaption:
         "Home and lock screen widget cards emphasizing urgent expirations with one-tap deep links.",
       mediaAlt: "Widgets and notifications illustration",
-      imagePath: "/images/WidgetNotification.png",
+      imagePath: "/images/Widgets En Pad.png",
     },
     trees: {
       icon: "🌳",
@@ -1066,7 +1078,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "相機與 OCR 擷取流程，把包裝資訊整理成結構化欄位。",
       mediaAlt: "智慧拍照記錄流程示意圖",
-      imagePath: "/images/CameraZh.png",
+      imagePath: "",
     },
     voice: {
       icon: "🎙️",
@@ -1131,7 +1143,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "AI 對話可同時輸出食譜卡片與多日餐計畫。",
       mediaAlt: "AI 食譜與餐計畫示意圖",
-      imagePath: "/images/AIChef&PlannerZh.png",
+      imagePath: "/images/Recipe Zh Pad.png",
     },
     donation: {
       icon: "🎯",
@@ -1163,7 +1175,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "捐贈地圖與據點資訊卡同時顯示可收受條件與安全判斷。",
       mediaAlt: "捐贈安全配對示意圖",
-      imagePath: "/images/DonationCenterFinderZh.png",
+      imagePath: "/images/Trees Zh Pad.png",
     },
     sync: {
       icon: "🔄",
@@ -1196,7 +1208,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "同一筆食材記錄可同步到 Google 與 Apple 生態系。",
       mediaAlt: "同步整合示意圖",
-      imagePath: "/images/SyncZh.png",
+      imagePath: "/images/Sync Zh Pad.png",
     },
     widgets: {
       icon: "📱",
@@ -1229,7 +1241,7 @@ export const featureDetailsCopy: Record<
       mediaTitle: "功能視覺",
       mediaCaption: "小工具與通知會在不開 App 時持續提示高風險到期品項。",
       mediaAlt: "小工具與提醒示意圖",
-      imagePath: "/images/WidgetNotificationZh.png",
+      imagePath: "/images/Widgets Zh Pad.png",
     },
     trees: {
       icon: "🌳",
